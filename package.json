@@ -7,14 +7,15 @@
         "predeploy": "npm run build",
         "deploy": "gh-pages -d build",
         "dev": "vite",
-        "start": "npm run dev",
+        "start": "serve build -s -n -L -p 4000",
         "build": "vite build",
         "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
         "preview": "vite preview"
     },
     "dependencies": {
         "react": "^18.2.0",
-        "react-dom": "^18.2.0"
+        "react-dom": "^18.2.0",
+        "serve": "^14.2.1"
     },
     "devDependencies": {
         "@types/react": "^18.2.15",
