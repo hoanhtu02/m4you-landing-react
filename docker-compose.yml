@@ -1,0 +1,11 @@
+version: '3'
+services:
+  web-vimo:
+    build: .
+    restart: always
+    hostname: web-vimo
+    networks:
+      - frontend
+networks:
+  frontend:
+    driver: bridge
