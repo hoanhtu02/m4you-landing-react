@@ -1,17 +1,22 @@
+import Button from "./reusable/Button";
 import Title from "./reusable/Title";
-
 export default function Recap() {
     return (
-        <section className="bg-[#68bcd4] py-8">
-            <main className="sm:w-8/12 w-11/12 mx-auto grid align-middle justify-center">
-                <Title
-                    className={
-                        "uppercase text-white text-center leading-[1.4] sm:py-20 py-15 md:text-[30px] lg:text-[40px] text-[20px]"
-                    }
-                >
-                    <p>ứng dụng m4you trên di động</p> sẽ đếm sớm để phục vụ bạn
+        <section className="w-10/12 mx-auto flex mt-[4rem]">
+            <div className="flex flex-col  justify-center gap-y-[1.3125rem]">
+                <Title>
+                    <p>Ứng dụng M4YOU</p> sẽ sớm ra mắt
                 </Title>
-            </main>
+                <p>Để lại email để nhận thông tin sớm nhất từ chúng tôi</p>
+                <form className="flex justify-between">
+                    <input
+                        className="border-2 p-[1.375rem_1.75rem] rounded-[1rem] outline-primary"
+                        placeholder={"Your email here"}
+                    />
+                    <Button>Submit</Button>
+                </form>
+            </div>
+            <img src="src/assets/images/iphone.png" loading="lazy" alt="Iphone" />
         </section>
     );
 }
