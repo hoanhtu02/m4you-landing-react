@@ -10,7 +10,7 @@ function InnerContent({ index = 1, children }) {
                 {children}
             </div>
             <img
-                src={`src/assets/images/slide-${index}.png`}
+                src={`assets/images/slide-${index}.png`}
                 className={`w-full`}
                 alt={`Slider ${index}`}
             />

@@ -7,13 +7,15 @@ function Select({ className, name, title, list = [], formState, register, err })
     // const [value, setValue] = useState("");
     const [getValues, setValue] = formState;
     let value = getValues(name);
+    // console.log(value);
     const handleSelect = (val) => {
-        console.log(val);
+        // console.log(val);
         // setValue(val.value);
         setValue(name, val.value, { shouldValidate: true });
         setPlaceholder(() => val.title);
         setIsFocus(false);
     };
+
     return (
         <div>
             <div className="relative">
@@ -34,7 +36,7 @@ function Select({ className, name, title, list = [], formState, register, err })
                     value={placeholder}
                 />
                 <img
-                    src="src/assets/icons/down.png"
+                    src="assets/icons/down.png"
                     alt="Giải thích"
                     className="absolute top-[45%] left-[90%] opacity-40"
                 />
@@ -43,9 +45,9 @@ function Select({ className, name, title, list = [], formState, register, err })
                         isFocus ? `flex z-20` : "invisible"
                     } rounded-[1rem] flex-col  left-0 shadow-lg h-[15rem] gap-y-0 overflow-y-scroll overflow-x-hidden`}
                     onMouseDown={(e) => {
-                        // console.log("Clicked target:", e.target.tagName);
-                        console.dir(e.target);
-                        const valueLi = e.target.value;
+                        // console.dir();
+                        // console.log(e.target.getAttribute("value"));
+                        const valueLi = e.target.getAttribute("value") || e.target.value;
                         if (!valueLi) return;
                         const value = list.find((val) => val.value === valueLi);
                         // console.log(value);
@@ -56,7 +58,7 @@ function Select({ className, name, title, list = [], formState, register, err })
                         <li
                             key={idx}
                             value={val.value}
-                            className="py-[1.0825rem] px-[2.75rem] basis-full h-[60px] hover:bg-tertiary cursor-pointer"
+                            className="py-[1.0825rem] px-[2.75rem] basis-full h-[3.75rem] hover:bg-tertiary cursor-pointer"
                         >
                             {val.title}
                         </li>

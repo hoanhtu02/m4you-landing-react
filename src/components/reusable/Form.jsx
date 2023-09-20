@@ -1,46 +1,49 @@
 /* eslint-disable no-unused-vars */
-import { useEffect, useRef, useState } from "react";
 import Input from "./Input";
 import Button from "./Button";
 import Select from "./Select";
 import { useForm } from "react-hook-form";
-
+import province from "../../data/province.json";
 const listPhase = [
     {
-        value: 1,
+        value: "1",
         title: "Đi làm dưới 5 năm",
     },
     {
-        value: 2,
+        value: "2",
         title: "Đi làm trên 5 năm",
     },
     {
-        value: 3,
+        value: "3",
         title: "Có con nhỏ từ 5 tuổi",
     },
 ];
 const listProvince = [
-    { value: 1, title: "Bình Thuận" },
-    { value: 2, title: "Hồ Chí Minh" },
-    { value: 3, title: "Đà Nẵng" },
-    { value: 4, title: "Hà Nội" },
+    // { value: 1, title: "Bình Thuận" },
+    // { value: 2, title: "Hồ Chí Minh" },
+    // { value: 3, title: "Đà Nẵng" },
+    // { value: 4, title: "Hà Nội" },
 ];
+for (const key in province.VN.divisions) {
+    if (Object.hasOwnProperty.call(province.VN.divisions, key)) {
+        const pro = province.VN.divisions[key];
+        listProvince.push({ value: key, title: pro });
+    }
+}
 function Form() {
     const {
         register,
         getValues,
-        clearErrors,
         reset,
         setValue,
         handleSubmit,
         formState: { errors, isValid, dirtyFields },
     } = useForm();
-
     function onSubmitValid(data) {
         console.log(data);
         reset("", { keepDefaultValues: true, keepErrors: true });
     }
-    console.log(errors);
+    // console.log(errors);
     return (
         <form onSubmit={handleSubmit(onSubmitValid)}>
             <div className="grid grid-cols-2 gap-x-[4.375rem] gap-y-[1.5625rem] text-medium mt-[2.25rem]">

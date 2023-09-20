@@ -3,7 +3,7 @@ export default function Footer() {
         <footer className="mt-[4rem] bg-tertiary">
             <div className="w-10/12 flex mx-auto py-[4.375rem] gap-[5rem]">
                 <img
-                    src="src/assets/images/logo.png"
+                    src="assets/images/logo.png"
                     loading="lazy"
                     className="grayscale"
                     alt="Logo"
@@ -11,11 +11,13 @@ export default function Footer() {
                 <div className="text-medium">
                     <div>
                         <span className="font-bold">Email: </span>
-                        <a href="mailto:support@m4you.vn">support@m4you.vn</a>
+                        <a className="underline-offset-8" href="mailto:support@m4you.vn">
+                            support@m4you.vn
+                        </a>
                     </div>
                     <div>
                         <span className="font-bold">Facebook: </span>
-                        <a href="https://www.facebook.com/m4you.vn">
+                        <a className="underline-offset-8" href="https://www.facebook.com/m4you.vn">
                             https://www.facebook.com/m4you.vn
                         </a>
                     </div>

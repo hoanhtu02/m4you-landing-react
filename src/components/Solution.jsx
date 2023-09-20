@@ -12,12 +12,12 @@ export default function Solution() {
                 <img
                     loading="lazy"
                     className="h-[35.7075rem] mx-auto"
-                    src="src/assets/images/graph.png"
+                    src=" assets/images/graph.png"
                     alt="Graph"
                 />
                 <div className="rounded-[1.875rem] bg-tertiary  shadow-md">
                     <div className="p-[2.5rem]">
-                        <Icon src={"src/assets/icons/tips.png"} />
+                        <Icon src={" assets/icons/tips.png"} />
                         <SectionTitle className={"mt-[1.5rem]"}>M4U mang đến cho bạn</SectionTitle>
                         <div className="text-small mt-[1.5rem]">
                             <List

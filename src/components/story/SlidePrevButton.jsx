@@ -6,11 +6,11 @@ export default function SlidePrevButton({ slide }) {
     return (
         <button onClick={() => swiper.slidePrev()}>
             <img
-                src="src/assets/icons/arr-left.png"
+                src="assets/icons/arr-left.png"
                 alt="Prev"
-                className={`rounded-full  p-[20px_15px] ${
+                className={`rounded-full  p-[1.25rem_0.9375rem] ${
                     slide === 0 ? "opacity-40" : "bg-primary"
-                } outline-4 border-[4px] border-primary`}
+                } outline-4 border-[0.25rem] border-primary`}
             />
         </button>
     );
