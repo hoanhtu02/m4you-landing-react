@@ -1,27 +1,25 @@
+/* eslint-disable no-unused-vars */
+import { useCallback } from "react";
+import { useEffect } from "react";
 import { useState } from "react";
 // ...
 
 function Select({ className, name, title, list = [], formState, register, err }) {
     const [isFocus, setIsFocus] = useState(false);
-    const [placeholder, setPlaceholder] = useState("");
-    // const [value, setValue] = useState("");
-    const [getValues, setValue] = formState;
-    let value = getValues(name);
-    // console.log(value);
-    const handleSelect = (val) => {
-        // console.log(val);
-        // setValue(val.value);
-        setValue(name, val.value, { shouldValidate: true });
-        setPlaceholder(() => val.title);
-        setIsFocus(false);
-    };
-
+    const [placeholder, setPlaceholder] = useState(title);
+    const [getValues, handleSelect] = formState;
+    const [value, setValue] = useState("");
     return (
         <div>
             <div className="relative">
-                {/* <input {...register} type="text" className="invisible absolute" value={value} /> */}
                 <input
                     {...register}
+                    type="text"
+                    className="invisible absolute"
+                    value={value ?? ""}
+                />
+                <input
+                    // {...register}
                     readOnly={true}
                     className={`${className ?? ""} rounded-[1rem] py-[1.0825rem] ${
                         err[name] ? "outline-red-600" : "outline-primary"
@@ -32,7 +30,7 @@ function Select({ className, name, title, list = [], formState, register, err })
                     onBlur={() => {
                         setIsFocus(() => false);
                     }}
-                    placeholder={title}
+                    placeholder={placeholder}
                     value={placeholder}
                 />
                 <img
@@ -49,9 +47,11 @@ function Select({ className, name, title, list = [], formState, register, err })
                         // console.log(e.target.getAttribute("value"));
                         const valueLi = e.target.getAttribute("value") || e.target.value;
                         if (!valueLi) return;
-                        const value = list.find((val) => val.value === valueLi);
+                        const obj = list.find((val) => val.value === valueLi);
                         // console.log(value);
-                        handleSelect(value);
+                        setValue(obj.value);
+                        handleSelect(obj.value, name);
+                        setPlaceholder(obj.title);
                     }}
                 >
                     {list.map((val, idx) => (

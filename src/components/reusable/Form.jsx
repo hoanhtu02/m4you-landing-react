@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-vars */
 import Input from "./Input";
 import Button from "./Button";
 import Select from "./Select";
@@ -34,15 +33,18 @@ function Form() {
     const {
         register,
         getValues,
-        reset,
+        // reset,
         setValue,
         handleSubmit,
-        formState: { errors, isValid, dirtyFields },
+        formState: { errors },
     } = useForm();
     function onSubmitValid(data) {
         console.log(data);
-        reset("", { keepDefaultValues: true, keepErrors: true });
+        // reset("");
     }
+    const handleSelect = (val, name) => {
+        setValue(name, val, { shouldValidate: true });
+    };
     // console.log(errors);
     return (
         <form onSubmit={handleSubmit(onSubmitValid)}>
@@ -54,18 +56,14 @@ function Form() {
                     err={errors}
                     name={"name"}
                 />
-                <Input
-                    register={register("email", {
-                        required: "Vui lòng điền email của bạn",
-                        pattern: {
-                            value: /^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/g,
-                            message: "Email không hợp lệ",
-                        },
-                    })}
-                    type="text"
-                    placeholder="Email*"
+
+                <Select
+                    register={register("phase", { required: "Vui lòng chọn 1 lựa chọn" })}
+                    title={"Bạn đang ở giai đoạn*"}
+                    name={"phase"}
+                    list={listPhase}
                     err={errors}
-                    name="email"
+                    formState={[getValues, handleSelect]}
                 />
                 <Input
                     register={register("phone", {
@@ -86,23 +84,28 @@ function Form() {
                     name={"province"}
                     list={listProvince}
                     err={errors}
-                    formState={[getValues, setValue]}
+                    formState={[getValues, handleSelect]}
                 />
-                <Select
-                    register={register("phase", { required: "Vui lòng chọn 1 lựa chọn" })}
-                    title={"Bạn đang ở giai đoạn*"}
-                    name={"phase"}
-                    list={listPhase}
+                <Input
+                    register={register("email", {
+                        required: "Vui lòng điền email của bạn",
+                        pattern: {
+                            value: /^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/g,
+                            message: "Email không hợp lệ",
+                        },
+                    })}
+                    type="text"
+                    placeholder="Email*"
                     err={errors}
-                    formState={[getValues, setValue]}
+                    name="email"
                 />
-                <div className="col-start-2 col-end-3 row-start-1 row-end-6 flex flex-col">
+                <div className=" flex flex-col">
                     <textarea
                         className={`rounded-[1rem] py-[1.0825rem] px-[1.75rem] ${
                             errors["desire"] ? "outline-red-600" : "outline-primary"
                         } w-full flex-grow`}
-                        placeholder="Nhu cầu, mong muốn được hỗ trợ của bạn là gì?"
-                        // rows={3}
+                        placeholder="Nhu cầu, mong muốn được hỗ trợ là gì?"
+                        rows={1}
                         {...register("desire", { required: "Trường này không được để trống" })}
                     ></textarea>
                     {errors["desire"] ? (
@@ -114,7 +117,9 @@ function Form() {
                     )}
                 </div>
             </div>
-            <Button className={"mt-[3.5rem]"}>Miễn phí 2 năm</Button>
+            <Button className={"mt-[3.5rem]"} isRedirect={false}>
+                Miễn phí 2 năm
+            </Button>
         </form>
     );
 }
