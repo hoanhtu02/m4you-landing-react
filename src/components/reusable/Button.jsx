@@ -1,6 +1,5 @@
 import { scroller } from "react-scroll";
 function Button({ children, className, isRedirect = true }) {
-    className += " rounded-[4.375rem] bg-primary py-[1.375rem] px-[3.3125rem] font-bold text-black";
     return (
         <button
             type="submit"
@@ -12,7 +11,7 @@ function Button({ children, className, isRedirect = true }) {
                         smooth: "easeInOutQuart",
                     });
             }}
-            className={className}
+            className={`${className} outline-none hover:bg-[#E0A700] text-base p-[.7rem_1.2rem] rounded-full bg-primary xl:py-[1.375rem] xl:px-[3.3125rem] lg:py-[1.1rem] lg:px-[3.1rem] lg:text-lg-medium md:text-xl md:py-[1rem] md:px-[2rem] xl:text-large font-bold text-black`}
         >
             {children}
         </button>

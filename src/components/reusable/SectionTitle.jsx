@@ -1,6 +1,9 @@
 function SectionTitle({ className, children }) {
-    className += " text-large font-bold";
-    return <div className={className}>{children}</div>;
+    return (
+        <div className={`${className} xl:text-large lg:text-2xl md:text-xl  text-xl font-bold`}>
+            {children}
+        </div>
+    );
 }
 
 export default SectionTitle;

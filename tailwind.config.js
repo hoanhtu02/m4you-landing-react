@@ -4,7 +4,11 @@ export default {
     theme: {
         extend: {
             screens: {
-                sm: "435px",
+                ssm: "27.1875em", // 435
+                sm: "36em", // 576
+                "3xl": "120em",
+                "4xl": "160em",
+                "5xl": "240em",
             },
             colors: {
                 primary: "#FFC700",
@@ -16,8 +20,11 @@ export default {
                 medium: "1.5rem",
                 large: "2rem",
                 slarge: "3rem",
+                "lg-small": "1rem",
+                "lg-medium": "1.2rem",
+                "lg-large": "1.8rem",
+                "lg-slarge": "2.3rem",
             },
-            
         },
     },
     plugins: [],

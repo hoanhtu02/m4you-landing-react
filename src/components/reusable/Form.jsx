@@ -2,7 +2,9 @@ import Input from "./Input";
 import Button from "./Button";
 import Select from "./Select";
 import { useForm } from "react-hook-form";
-import province from "../../data/province.json";
+// import province from "../../data/province.json";
+import { useState } from "react";
+import { useEffect } from "react";
 const listPhase = [
     {
         value: "1",
@@ -17,30 +19,73 @@ const listPhase = [
         title: "Có con nhỏ từ 5 tuổi",
     },
 ];
-const listProvince = [
-    // { value: 1, title: "Bình Thuận" },
-    // { value: 2, title: "Hồ Chí Minh" },
-    // { value: 3, title: "Đà Nẵng" },
-    // { value: 4, title: "Hà Nội" },
-];
-for (const key in province.VN.divisions) {
-    if (Object.hasOwnProperty.call(province.VN.divisions, key)) {
-        const pro = province.VN.divisions[key];
-        listProvince.push({ value: key, title: pro });
-    }
+// const listProvince = [
+//     // { value: 1, title: "Bình Thuận" },
+//     // { value: 2, title: "Hồ Chí Minh" },
+//     // { value: 3, title: "Đà Nẵng" },
+//     // { value: 4, title: "Hà Nội" },
+// ];
+// for (const key in province.VN.divisions) {
+//     if (Object.hasOwnProperty.call(province.VN.divisions, key)) {
+//         const pro = province.VN.divisions[key];
+//         listProvince.push({ value: key, title: pro });
+//     }
+// }
+function getProvinceWithoutPrefix(fullName) {
+    return fullName
+        .split(/(Thành phố|Tỉnh)/g)
+        .at(2)
+        .trim();
 }
 function Form() {
     const {
         register,
         getValues,
-        // reset,
+        reset,
         setValue,
         handleSubmit,
-        formState: { errors },
+        formState: { errors, isSubmitSuccessful },
     } = useForm();
+    const [dataForm, setDataForm] = useState({});
+    const [listProvince, setListProvince] = useState([]);
+    useEffect(() => {
+        async function fetchProvince() {
+            try {
+                const response = await fetch("https://vapi.vnappmob.com/api/province");
+                if (!response.ok) return;
+                const data = await response.json();
+                let temp = [];
+                data.results.forEach((province) => {
+                    temp.push({
+                        value: province.province_id,
+                        title: getProvinceWithoutPrefix(province.province_name),
+                    });
+                });
+                setListProvince(() => [...temp]);
+                // console.log(object);
+            } catch (err) {
+                alert(err);
+            }
+        }
+        fetchProvince();
+    }, [dataForm]);
+
+    useEffect(() => {
+        if (isSubmitSuccessful) {
+            reset({
+                name: "",
+                email: "",
+                phone: "",
+                phase: "Bạn đang ở giai đoạn",
+                provinceName: "Tỉnh thành*",
+                desire: "",
+            });
+        }
+    }, [isSubmitSuccessful, reset]);
     function onSubmitValid(data) {
         console.log(data);
-        // reset("");
+        setDataForm(data);
+        reset("", { keepValues: false });
     }
     const handleSelect = (val, name) => {
         setValue(name, val, { shouldValidate: true });
@@ -48,13 +93,14 @@ function Form() {
     // console.log(errors);
     return (
         <form onSubmit={handleSubmit(onSubmitValid)}>
-            <div className="grid grid-cols-2 gap-x-[4.375rem] gap-y-[1.5625rem] text-medium mt-[2.25rem]">
+            <div className="grid grid-cols-1 md:grid-cols-2 xl:gap-x-[4.375rem] lg:gap-x-[3.5rem] gap-y-[1.5625rem] md:gap-x-[3rem] xl:text-lg md:text-sm lg:text-base text-base mt-[2.25rem]">
                 <Input
                     register={register("name", { required: "Vui lòng điền đầy đủ họ tên" })}
                     type="text"
                     placeholder="Họ và tên của bạn*"
                     err={errors}
                     name={"name"}
+                    className={"order-1 md:order-none "}
                 />
 
                 <Select
@@ -63,6 +109,7 @@ function Form() {
                     name={"phase"}
                     list={listPhase}
                     err={errors}
+                    className={"order-4 md:order-none"}
                     formState={[getValues, handleSelect]}
                 />
                 <Input
@@ -75,15 +122,17 @@ function Form() {
                     })}
                     type="text"
                     err={errors}
+                    className={"order-2 md:order-none"}
                     name="phone"
                     placeholder="Số điện thoại*"
                 />
                 <Select
-                    register={register("province", { required: "Vui lòng chọn 1 lựa chọn" })}
+                    register={register("provinceName", { required: "Vui lòng chọn 1 lựa chọn" })}
                     title={"Tỉnh thành*"}
-                    name={"province"}
+                    name={"provinceName"}
                     list={listProvince}
                     err={errors}
+                    className={"order-5 md:order-none"}
                     formState={[getValues, handleSelect]}
                 />
                 <Input
@@ -97,13 +146,14 @@ function Form() {
                     type="text"
                     placeholder="Email*"
                     err={errors}
+                    className={"order-3 md:order-none"}
                     name="email"
                 />
-                <div className=" flex flex-col">
+                <div className=" flex flex-col order-6 md:order-none">
                     <textarea
-                        className={`rounded-[1rem] py-[1.0825rem] px-[1.75rem] ${
+                        className={`xl:rounded-[1rem] lg:rounded-[0.8rem] rounded-[0.4rem]  xl:py-[1.0825rem] xl:px-[2.75rem]  lg:py-[0.8rem] lg:pl-[1.8rem] lg:pr-[0.8rem]  md:px-[1.5rem] md:py-[.5rem]  px-[1rem] py-[0.5rem] ${
                             errors["desire"] ? "outline-red-600" : "outline-primary"
-                        } w-full flex-grow`}
+                        } w-full`}
                         placeholder="Nhu cầu, mong muốn được hỗ trợ là gì?"
                         rows={1}
                         {...register("desire", { required: "Trường này không được để trống" })}

@@ -21,15 +21,29 @@ html {
 .swiper {
     width: 95vw;
     margin-right: 0;
-    margin-left: auto;
+    /* margin-left: 100px; */
 }
-
+@media screen and (max-width: 768px) {
+    .swiper {
+        width: 100vw;
+        margin-right: 0;
+        margin-left: 0;
+    }
+}
 .swiper-wrapper {
     display: grid;
     grid-template-rows: 1fr;
     grid-template-columns: repeat(5, minmax(min-content, max-content));
 }
-
+.no-select {
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+    -khtml-user-select: none; /* Konqueror HTML */
+    -moz-user-select: none; /* Old versions of Firefox */
+    -ms-user-select: none; /* Internet Explorer/Edge */
+    user-select: none; /* Non-prefixed version, currently
+                                    supported by Chrome, Edge, Opera and Firefox */
+}
 .swiper-slide {
     /* transform: scale(0.8) !important; */
 }

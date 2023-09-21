@@ -1,6 +1,11 @@
 function Title({ className, children }) {
-    className += " font-bold text-[3rem]  leading-[3.7rem]";
-    return <h1 className={className}>{children}</h1>;
+    return (
+        <h1
+            className={`${className} font-bold xl:text-slarge lg:text-lg-slarge lg:leading-[3.3rem]  xl:leading-[3.7rem] md:text-3xl text-3xl`}
+        >
+            {children}
+        </h1>
+    );
 }
 
 export default Title;
