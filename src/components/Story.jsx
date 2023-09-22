@@ -5,12 +5,12 @@ import Slider from "./story/Slider";
 
 export default function Story() {
     return (
-        <section className=" 3xl:overflow-hidden 3xl:w-8/12 4xl:w-6/12 5xl:w-3/12 w-full mx-auto mt-[6.625rem] md:pb-0 pb-[4rem] bg-tertiary">
-            <div className={"text-center py-[4.94rem] w-10/12 mx-auto"}>
+        <section className=" rounded-3xl  w-full mx-auto mt-[6.625rem] md:pb-0 bg-tertiary">
+            <div className={"text-center pt-[4rem] w-10/12 mx-auto"}>
                 <Title className={"text-2xl"}>
-                    Câu chuyện ra đời của<p>M4YOU</p>
+                    Câu chuyện ra đời của M4YOU
                 </Title>
-                <SectionTitle className={"text-center mt-[1rem] !text-base"}>
+                <SectionTitle className={"text-center mt-[1rem] lg:text-2xl text-base "}>
                     <HightLight>
                         Nghĩ lớn - Làm nhỏ | Từ nhỏ - Đến Lớn | Tư duy - Tiền bạc
                     </HightLight>

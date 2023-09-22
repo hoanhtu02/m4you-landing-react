@@ -13,21 +13,117 @@ html {
     font-family: "Montserrat", sans-serif;
 }
 #root {
+    max-width: 1280px; /*|| 1920px; */
+    margin: 0 auto;
     display: grid;
     grid-template-rows: min-content minmax(min-content, max-content) 1fr;
-    /* row-gap: 20px; */
     overflow: hidden;
 }
 .swiper {
-    width: 95vw;
-    margin-right: 0;
-    /* margin-left: 100px; */
+    width: 1240px;
+    margin-right: 0px;
+    margin-left: 40px;
+    margin-top: 50px;
 }
+@media screen and (max-width: 1366px) {
+    .swiper {
+        width: 1240px;
+        margin-right: 0;
+        margin-left: 40px;
+    }
+}
+@media screen and (max-width: 1280px) {
+    .swiper {
+        width: 1190px;
+        margin-right: 0;
+        margin-left: 40px;
+    }
+}
+@media screen and (max-width: 1180px) {
+    .swiper {
+        max-width: 1100px;
+        margin-right: 0;
+        margin-left: 40px;
+    }
+}
+@media screen and (max-width: 1100px) {
+    .swiper {
+        max-width: 1020px;
+        margin-right: 0;
+        margin-left: 40px;
+    }
+}
+@media screen and (max-width: 1024px) {
+    .swiper {
+        width: 960px;
+        margin-right: 0;
+        margin-left: 40px;
+    }
+}
+@media screen and (max-width: 912px) {
+    .swiper {
+        width: 865px;
+        margin-right: 0;
+        margin-left: 40px;
+    }
+}
+@media screen and (max-width: 820px) {
+    .swiper {
+        width: 760px;
+        margin-right: 0;
+    }
+}
+
 @media screen and (max-width: 768px) {
     .swiper {
-        width: 100vw;
-        margin-right: 0;
-        margin-left: 0;
+        width: 700px;
+        margin-left: 20px;
+    }
+}
+
+@media screen and (max-width: 558px) {
+    .swiper {
+        width: 515px;
+        margin-left: 10px;
+    }
+}
+
+@media screen and (max-width: 415px) {
+    .swiper {
+        width: 395px;
+        margin-left: 10px;
+        margin-bottom: 60px;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .swiper {
+        width: 370px;
+        margin-left: 10px;
+        margin-bottom: 60px;
+    }
+}
+
+@media screen and (max-width: 376px) {
+    .swiper {
+        width: 360px;
+        margin-left: 10px;
+        margin-bottom: 60px;
+    }
+}
+
+@media screen and (max-width: 361px) {
+    .swiper {
+        width: 340px;
+        margin-left: 10px;
+        margin-bottom: 60px;
+    }
+}
+@media screen and (max-width: 280px) {
+    .swiper {
+        width: 260px;
+        margin-left: 10px;
+        margin-bottom: 60px;
     }
 }
 .swiper-wrapper {
@@ -35,18 +131,17 @@ html {
     grid-template-rows: 1fr;
     grid-template-columns: repeat(5, minmax(min-content, max-content));
 }
-.no-select {
-    -webkit-touch-callout: none; /* iOS Safari */
-    -webkit-user-select: none; /* Safari */
-    -khtml-user-select: none; /* Konqueror HTML */
-    -moz-user-select: none; /* Old versions of Firefox */
-    -ms-user-select: none; /* Internet Explorer/Edge */
-    user-select: none; /* Non-prefixed version, currently
-                                    supported by Chrome, Edge, Opera and Firefox */
-}
-.swiper-slide {
-    /* transform: scale(0.8) !important; */
-}
+/* .no-select {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+} */
+/* .swiper-slide {
+    transform: scale(0.8) !important;
+} */
 /* @media screen and (orientation: landscape) and (max-height: 780px)
 
 @media screen and (orientation: landscape) and (max-height: 630px)

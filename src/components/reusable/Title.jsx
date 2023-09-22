@@ -1,7 +1,7 @@
 function Title({ className, children }) {
     return (
         <h1
-            className={`${className} font-bold xl:text-slarge lg:text-lg-slarge lg:leading-[3.3rem]  xl:leading-[3.7rem] md:text-3xl text-3xl`}
+            className={`${className} lg:text-5xl !leading-tight  md:text-3xl text-2xl font-bold`}
         >
             {children}
         </h1>

@@ -3,17 +3,17 @@ import SectionTitle from "./reusable/SectionTitle";
 
 export default function Problem() {
     return (
-        <section className="w-full md:w-11/12  3xl:w-8/12 4xl:w-6/12 5xl:w-3/12 mx-auto lg:mt-[13.1875rem]  md:mt-[7rem] p-[2.5rem] flex flex-col md:grid grid-cols-2 xl:gap-[4rem]  bg-tertiary md:rounded-[1.875rem] relative md:shadow-md">
+        <section className="w-full mb-20 lg:mt-52 md:mt-16 sm:p-[2.5rem] p-[2rem_1rem] flex flex-col md:grid grid-cols-2 xl:gap-[4rem]  bg-tertiary xl:rounded-[1.875rem] relative xl:shadow-md">
             <div>
                 <Icon src={" assets/icons/ask.png"} alt="Ask icon" />
                 <SectionTitle
                     className={
-                        "xl:mt-[1.5rem] xl:mb-[0.875rem] lg:mt-[1.2rem]  lg:mb-[0.6rem] md:m-[1rem_0_.6rem]"
+                        "xl:mt-[1.5rem] xl:mb-[0.875rem] lg:mt-[1.2rem]  lg:mb-[0.6rem] md:m-[1rem_0_.6rem] m-[.7rem_0_.4rem]"
                     }
                 >
                     Bạn đang...
                 </SectionTitle>
-                <div className="xl:text-small lg:text-lg-small text-base flex flex-wrap xl:gap-4 lg:gap-2 md:gap-2 text-[#494646] xl:pr-[8rem] lg:pr-[7rem]">
+                <div className="xl:text-lg lg:text-lg-small text-base flex flex-wrap xl:gap-4 lg:gap-2 md:gap-2 gap-2 text-[#494646] xl:pr-[8rem] lg:pr-[7rem]">
                     <p>Bạn đã từng làm nhiều cách khác nhau để phát triển tài chính cả nhân.</p>
                     <p>Bạn thiếu người thầy, người dẫn dắt, thiếu những góc nhìn và kiến thức.</p>
                     <p>

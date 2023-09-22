@@ -3,7 +3,7 @@ export function Logo() {
         <img
             src="assets/images/logo.png"
             alt="M4YOU"
-            className="xl:w-[19.875rem] lg:w-[15rem] md:w-[15rem] w-[11rem] mx-auto"
+            className="xl:w-[16rem] lg:w-[8rem] md:w-[6rem] w-[5rem] xl:mb-[1.75rem] mb-[1rem]"
         />
     );
 }

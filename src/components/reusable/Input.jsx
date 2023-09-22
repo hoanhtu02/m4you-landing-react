@@ -13,7 +13,7 @@ function Input({ register, type, className, placeholder, err, name }) {
                 />
                 {err[name] ? (
                     <span
-                        className={`text-red-600 font-[400] lg:text-[0.65rem] xl:text-[0.85rem] text-base`}
+                        className={`text-red-600 font-[400] lg:text-[0.65rem] xl:text-[0.85rem]  text-[0.85rem]`}
                     >
                         {err[name].message}
                     </span>

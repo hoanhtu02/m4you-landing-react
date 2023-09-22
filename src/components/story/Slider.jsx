@@ -15,19 +15,28 @@ function Slider() {
             slidesPerView={1.4}
             breakpoints={{
                 0: {
-                    slidesPerView: 1.1,
+                    slidesPerView: 1,
                     spaceBetween: 20,
                 },
-                750: {
+                362:{
                     slidesPerView: 1.1,
+                    spaceBetween: 20,
+
+                },
+                768: {
+                    slidesPerView: 1,
                     spaceBetween: 20,
                 },
                 1025: {
-                    slidesPerView: 1.2,
+                    slidesPerView: 1.3,
+                    spaceBetween: 40,
+                },
+                1100: {
+                    slidesPerView: 1.5,
                     spaceBetween: 40,
                 },
                 1280: {
-                    slidesPerView: 1.3,
+                    slidesPerView: 1.4,
                     spaceBetween: 40,
                 },
             }}
@@ -120,7 +129,7 @@ function Slider() {
 
             <div
                 slot="container-end"
-                className="m-[4rem_0_8rem] w-fit mx-auto md:flex flex-grow gap-10 hidden"
+                className="m-[2.5rem_0_8rem] w-fit mx-auto md:flex flex-grow gap-10 hidden"
             >
                 <SlidePrevButton slide={index} />
                 <SlideNextButton slide={index} />

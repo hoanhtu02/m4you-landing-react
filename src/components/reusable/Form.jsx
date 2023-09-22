@@ -76,15 +76,23 @@ function Form() {
                 name: "",
                 email: "",
                 phone: "",
-                phase: "Bạn đang ở giai đoạn",
-                provinceName: "Tỉnh thành*",
+                phase: "",
+                provinceName: "",
                 desire: "",
             });
         }
     }, [isSubmitSuccessful, reset]);
     function onSubmitValid(data) {
+        data.landingPageType = "INFO";
         console.log(data);
         setDataForm(data);
+        fetch("https://api-dev.vimoos.online/api/landing-page", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(data),
+        }).then();
         reset("", { keepValues: false });
     }
     const handleSelect = (val, name) => {
@@ -93,7 +101,7 @@ function Form() {
     // console.log(errors);
     return (
         <form onSubmit={handleSubmit(onSubmitValid)}>
-            <div className="grid grid-cols-1 md:grid-cols-2 xl:gap-x-[4.375rem] lg:gap-x-[3.5rem] gap-y-[1.5625rem] md:gap-x-[3rem] xl:text-lg md:text-sm lg:text-base text-base mt-[2.25rem]">
+            <div className="grid grid-cols-1 md:grid-cols-2 xl:gap-x-[4rem] lg:gap-x-[3.5rem] sm:gap-y-[1.4rem] md:gap-x-[3rem] ssm:gap-y-3 xl:text-lg md:text-sm lg:text-base text-base mt-[2rem] items-start">
                 <Input
                     register={register("name", { required: "Vui lòng điền đầy đủ họ tên" })}
                     type="text"
@@ -149,13 +157,13 @@ function Form() {
                     className={"order-3 md:order-none"}
                     name="email"
                 />
-                <div className=" flex flex-col order-6 md:order-none">
+                <div className=" flex flex-col order-6 md:order-none md:col-start-2 md:col-end-3 md:row-start-3 md:row-end-5">
                     <textarea
                         className={`xl:rounded-[1rem] lg:rounded-[0.8rem] rounded-[0.4rem]  xl:py-[1.0825rem] xl:px-[2.75rem]  lg:py-[0.8rem] lg:pl-[1.8rem] lg:pr-[0.8rem]  md:px-[1.5rem] md:py-[.5rem]  px-[1rem] py-[0.5rem] ${
                             errors["desire"] ? "outline-red-600" : "outline-primary"
                         } w-full`}
                         placeholder="Nhu cầu, mong muốn được hỗ trợ là gì?"
-                        rows={1}
+                        rows={4}
                         {...register("desire", { required: "Trường này không được để trống" })}
                     ></textarea>
                     {errors["desire"] ? (
@@ -166,10 +174,14 @@ function Form() {
                         ""
                     )}
                 </div>
+
+                {/* TODO: CÒN SỬA PHẦN BUTTON DANH CHO MÀN HÌNH MD VÀ SM */}
+                <div className="ssm:col-start-1 ssm:col-end-2 ssm:row-start-7 ssm:row-end-8 md:!col-start-1 md:!col-end-2 md:!row-start-4  md:!row-end-5 ">
+                    <Button className={""} isRedirect={false}>
+                        Miễn phí 2 năm
+                    </Button>
+                </div>
             </div>
-            <Button className={"mt-[3.5rem]"} isRedirect={false}>
-                Miễn phí 2 năm
-            </Button>
         </form>
     );
 }

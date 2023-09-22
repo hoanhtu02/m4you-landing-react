@@ -4,7 +4,7 @@ export default {
     theme: {
         extend: {
             screens: {
-                ssm: "27.1875em", // 435
+                ssm: "17.5em", // 280
                 sm: "36em", // 576
                 "3xl": "120em",
                 "4xl": "160em",
@@ -15,16 +15,16 @@ export default {
                 tertiary: "#F2F3F4",
                 text: "#494646",
             },
-            fontSize: {
-                small: "1.25rem",
-                medium: "1.5rem",
-                large: "2rem",
-                slarge: "3rem",
-                "lg-small": "1rem",
-                "lg-medium": "1.2rem",
-                "lg-large": "1.8rem",
-                "lg-slarge": "2.3rem",
-            },
+            // fontSize: {
+            //     small: "1.25rem",
+            //     medium: "1.5rem",
+            //     large: "2rem",
+            //     slarge: "3rem",
+            //     "lg-small": "1rem",
+            //     "lg-medium": "1.2rem",
+            //     "lg-large": "1.8rem",
+            //     "lg-slarge": "2.3rem",
+            // },
         },
     },
     plugins: [],

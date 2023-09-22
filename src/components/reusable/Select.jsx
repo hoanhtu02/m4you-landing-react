@@ -6,18 +6,11 @@ import { useState } from "react";
 
 function Select({ className, name, title, list = [], formState, register, err }) {
     const [isFocus, setIsFocus] = useState(false);
-    const [placeholder, setPlaceholder] = useState(title);
     const [getValues, handleSelect] = formState;
     const value = getValues(name);
     return (
         <div className={`${className} `}>
             <div className={`relative`}>
-                {/* <input
-                    {...register}
-                    type="text"
-                    className="invisible absolute"
-                    value={value ?? ""}
-                /> */}
                 <input
                     {...register}
                     readOnly={true}
@@ -30,7 +23,7 @@ function Select({ className, name, title, list = [], formState, register, err })
                     onBlur={() => {
                         setIsFocus(() => false);
                     }}
-                    placeholder={placeholder}
+                    placeholder={title}
                 />
                 <img
                     src="assets/icons/down.png"
@@ -48,7 +41,6 @@ function Select({ className, name, title, list = [], formState, register, err })
                         if (!valueLi) return;
                         const obj = list.find((val) => val.value === valueLi);
                         handleSelect(obj.title, name);
-                        setPlaceholder(obj.title);
                     }}
                 >
                     {list.map((val, idx) => (

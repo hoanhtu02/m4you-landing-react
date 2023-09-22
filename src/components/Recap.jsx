@@ -9,9 +9,9 @@ export default function Recap() {
     } = useForm();
 
     return (
-        <section className="w-11/12 md:w-10/12 3xl:w-8/12 4xl:w-6/12 5xl:w-3/12 mx-auto flex md:flex-row flex-col justify-evenly mt-[4rem]">
-            <div className="flex flex-col  justify-center gap-y-[1.3125rem]">
-                <Title>
+        <section className="flex md:flex-row flex-col  justify-between mt-[4rem] md:mx-[2.5rem] mx-[1rem]">
+            <div className="flex flex-col justify-center items-center sm:items-start gap-y-[1.3125rem]">
+                <Title className={"text-center sm:text-left"}>
                     <p>Ứng dụng M4YOU</p> sẽ sớm ra mắt
                 </Title>
                 <p className="xl:text-small lg:text-lg-small text-base">
@@ -19,8 +19,15 @@ export default function Recap() {
                 </p>
                 <form
                     className="flex justify-between lg:gap-12 md:gap-20 text-base"
-                    onSubmit={handleSubmit(function ({ email }) {
-                        alert(email);
+                    onSubmit={handleSubmit(function (data) {
+                        data.landingPageType = "APP";
+                        fetch("https://api-dev.vimoos.online/api/landing-page", {
+                            method: "POST",
+                            headers: {
+                                "Content-Type": "application/json",
+                            },
+                            body: JSON.stringify(data),
+                        }).then((response) => console.log(response));
                     })}
                 >
                     <input
@@ -42,7 +49,7 @@ export default function Recap() {
             </div>
             <img
                 src="assets/images/iphone.png"
-                className="xl:w-full lg:w-[400px] md:w-[250px] w-full md:mt-0 mt-6"
+                className="xl:w-[600px] lg:w-[400px] md:w-[250px] md:mt-0 mt-6 w-[300px] mx-auto"
                 loading="lazy"
                 alt="Iphone"
             />
