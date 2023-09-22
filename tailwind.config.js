@@ -3,6 +3,9 @@ export default {
     content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
     theme: {
         extend: {
+            maxWidth: {
+                standard: "1200px",
+            },
             screens: {
                 ssm: "17.5em", // 280
                 sm: "36em", // 576

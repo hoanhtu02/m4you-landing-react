@@ -13,30 +13,34 @@ html {
     font-family: "Montserrat", sans-serif;
 }
 #root {
-    max-width: 1280px; /*|| 1920px; */
-    margin: 0 auto;
     display: grid;
     grid-template-rows: min-content minmax(min-content, max-content) 1fr;
     overflow: hidden;
 }
 .swiper {
-    width: 1240px;
+    width: 1160px;
     margin-right: 0px;
     margin-left: 40px;
     margin-top: 50px;
 }
-@media screen and (max-width: 1366px) {
+/* @media screen and (min-width: 1370px) {
     .swiper {
-        width: 1240px;
+        width: 1200px;
         margin-right: 0;
         margin-left: 40px;
     }
-}
-@media screen and (max-width: 1280px) {
+} */
+/* @media screen and (max-width: 1366px) {
     .swiper {
-        width: 1190px;
+        width: 1160px;
         margin-right: 0;
         margin-left: 40px;
+    }
+} */
+@media screen and (max-width: 1280px) {
+    .swiper {
+        width: 1145px;
+        margin: 40px auto 0;
     }
 }
 @media screen and (max-width: 1180px) {
@@ -60,11 +64,22 @@ html {
         margin-left: 40px;
     }
 }
+@media screen and (max-width: 1024px) {
+    .swiper {
+        width: 900px;
+        margin: 40px auto 0;
+    }
+}
 @media screen and (max-width: 912px) {
     .swiper {
         width: 865px;
-        margin-right: 0;
-        margin-left: 40px;
+        margin: 40px auto 0;
+    }
+}
+@media screen and (max-width: 860px) {
+    .swiper {
+        width: 780px;
+        margin: 40px auto 0;
     }
 }
 @media screen and (max-width: 820px) {
@@ -80,10 +95,48 @@ html {
         margin-left: 20px;
     }
 }
+@media screen and (max-width: 730px) {
+    .swiper {
+        width: 670px;
+        margin-left: 20px;
+    }
+}
+@media screen and (max-width: 714px) {
+    .swiper {
+        width: 670px;
+        margin-left: 20px;
+    }
+}
+
+@media screen and (max-width: 680px) {
+    .swiper {
+        width: 650px;
+        margin-left: 20px;
+    }
+}
+@media screen and (max-width: 640px) {
+    .swiper {
+        width: 620px;
+        margin-left: 20px;
+    }
+}
+@media screen and (max-width: 600px) {
+    .swiper {
+        width: 570px;
+        margin-left: 20px;
+    }
+}
 
 @media screen and (max-width: 558px) {
     .swiper {
         width: 515px;
+        margin-left: 10px;
+    }
+}
+
+@media screen and (max-width: 501px) {
+    .swiper {
+        width: 475px;
         margin-left: 10px;
     }
 }

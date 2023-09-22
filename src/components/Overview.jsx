@@ -3,7 +3,7 @@ import HightLight from "./reusable/HightLight";
 import Button from "./reusable/Button";
 export default function Overview() {
     return (
-        <section className=" grid md:grid-cols-2 mt-[4rem] mb-[6rem] grid-cols-1 px-4 lg:px-[1rem] xl:my-24 lg:mt-[9rem] lg:mb-[12rem] md:mt-[4rem] md:mb-[2rem] text-base lg:text-xl md:justify-between">
+        <section className=" grid md:grid-cols-2 mt-[4.5rem] mb-[6rem] grid-cols-1 px-4 lg:px-[1rem] xl:my-26 lg:mt-[9rem] lg:mb-[12rem] md:mt-[4rem] md:mb-[2rem] text-base lg:text-xl md:justify-between">
             <div className="">
                 <p className="text-[#494646]">Welcome to M4you</p>
                 <Title className={"mt-2"}>

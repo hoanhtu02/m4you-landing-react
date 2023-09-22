@@ -2,10 +2,12 @@ import { Logo } from "./header/Logo";
 
 export default function Header() {
     return (
-        <header className={" bg-[#ababab] flex flex-col justify-center"}>
+        <header className={"bg-[#ababab] "}>
             {" "}
             {/*#ababab | bg-slate-800*/}
-            <Logo />
+            <div className="max-w-standard flex flex-col justify-center mx-auto">
+                <Logo />
+            </div>
         </header>
     );
 }

@@ -101,7 +101,7 @@ function Form() {
     // console.log(errors);
     return (
         <form onSubmit={handleSubmit(onSubmitValid)}>
-            <div className="grid grid-cols-1 md:grid-cols-2 xl:gap-x-[4rem] lg:gap-x-[3.5rem] sm:gap-y-[1.4rem] md:gap-x-[3rem] ssm:gap-y-3 xl:text-lg md:text-sm lg:text-base text-base mt-[2rem] items-start">
+            <div className="grid grid-cols-1 md:grid-cols-2 xl:gap-x-[4rem] lg:gap-x-[3.5rem] sm:gap-y-[1.4rem] md:gap-x-[3rem] gap-y-4 xl:text-lg md:text-sm lg:text-base text-base md:mt-[2rem] mt-[1rem] items-start">
                 <Input
                     register={register("name", { required: "Vui lòng điền đầy đủ họ tên" })}
                     type="text"
@@ -163,7 +163,7 @@ function Form() {
                             errors["desire"] ? "outline-red-600" : "outline-primary"
                         } w-full`}
                         placeholder="Nhu cầu, mong muốn được hỗ trợ là gì?"
-                        rows={4}
+                        rows={5.5}
                         {...register("desire", { required: "Trường này không được để trống" })}
                     ></textarea>
                     {errors["desire"] ? (
@@ -176,7 +176,7 @@ function Form() {
                 </div>
 
                 {/* TODO: CÒN SỬA PHẦN BUTTON DANH CHO MÀN HÌNH MD VÀ SM */}
-                <div className="ssm:col-start-1 ssm:col-end-2 ssm:row-start-7 ssm:row-end-8 md:!col-start-1 md:!col-end-2 md:!row-start-4  md:!row-end-5 ">
+                <div className="col-start-1 col-end-2 row-start-7 row-end-8 md:col-start-1 md:col-end-2 md:row-start-4  md:row-end-5 md:mt-7 mt-3 ">
                     <Button className={""} isRedirect={false}>
                         Miễn phí 2 năm
                     </Button>

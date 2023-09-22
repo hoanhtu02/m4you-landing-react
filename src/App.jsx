@@ -8,8 +8,12 @@ import Story from "./components/Story";
 import Recap from "./components/Recap";
 import Footer from "./components/Footer";
 import "./index.css";
+import { useEffect } from "react";
 
 function App() {
+    useEffect(() => {
+        window.history.scrollRestoration = "manual";
+    }, []);
     return (
         <>
             <Header />

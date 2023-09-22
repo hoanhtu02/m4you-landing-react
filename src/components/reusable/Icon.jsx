@@ -5,7 +5,7 @@ function Icon({ src, alt = "" }) {
         >
             <img
                 className={
-                    "xl:w-[15px] lg:w-[18px] md:w-[13px] w-[14px] absolute top-1/2 left-1/2 translate-x-[-50%] translate-y-[-50%]"
+                    "lg:w-[20px] md:w-[13px] w-[14px] absolute top-1/2 left-1/2 translate-x-[-50%] translate-y-[-50%]"
                 }
                 src={src}
                 alt={alt}

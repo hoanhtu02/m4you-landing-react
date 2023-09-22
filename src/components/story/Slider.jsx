@@ -32,7 +32,7 @@ function Slider() {
                     spaceBetween: 40,
                 },
                 1100: {
-                    slidesPerView: 1.5,
+                    slidesPerView: 1.35,
                     spaceBetween: 40,
                 },
                 1280: {
@@ -49,7 +49,7 @@ function Slider() {
                         Mỗi người chúng ta đều mong muốn phát triển cuộc sống tài chính cá nhân của
                         mình.
                     </p>{" "}
-                    <p className="xl:text-small lg:text-lg-small text-sm !leading-6">
+                    <p className="xl:text-sm lg:text-lg text-sm leading-6">
                         &nbsp;Mỗi người sẽ có những lựa chọn, cách làm khác nhau. Có người tập trung
                         vào việc phát triển sự nghiệp, leo lên các bậc thang cao hơn để đạt được thu
                         nhập tốt hơn. Có người đầu tư vào thị trường chứng khoán để tạo thêm nguồn
@@ -129,7 +129,7 @@ function Slider() {
 
             <div
                 slot="container-end"
-                className="m-[2.5rem_0_8rem] w-fit mx-auto md:flex flex-grow gap-10 hidden"
+                className="md:m-[2.5rem_auto_5rem] m-[2.5rem_auto_4rem] w-max flex flex-grow gap-10 "
             >
                 <SlidePrevButton slide={index} />
                 <SlideNextButton slide={index} />
