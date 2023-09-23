@@ -16,7 +16,7 @@ export default function Solution() {
                     alt="Graph"
                 />
                 <div className="md:rounded-[1.875rem] bg-tertiary  xl:shadow-md">
-                    <div className="xl:p-[2.2rem] lg:p-[2rem] md:p-[1.2rem] sm:p-[1.2rem]  ssm:p-[2.5rem_1rem]">
+                    <div className="xl:p-[2.5rem_1.5rem] lg:p-[2rem] md:p-[1.2rem] sm:p-[1.2rem]  p-[2.5rem_1rem]">
                         <Icon
                             className={" md:w-[2.4rem] md:py-[11px] w-auto"}
                             src={" assets/icons/tips.png"}

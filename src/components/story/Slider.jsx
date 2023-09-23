@@ -129,7 +129,7 @@ function Slider() {
 
             <div
                 slot="container-end"
-                className="md:m-[2.5rem_auto_5rem] m-[2.5rem_auto_4rem] w-max flex flex-grow gap-10 "
+                className="md:m-[2.5rem_auto] m-[2.5rem_auto_4rem] w-max flex flex-grow gap-10 "
             >
                 <SlidePrevButton slide={index} />
                 <SlideNextButton slide={index} />

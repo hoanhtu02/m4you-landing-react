@@ -1,10 +1,11 @@
-function Input({ register, type, className, placeholder, err, name }) {
+function Input({ register, type, className, placeholder, err, name, tabIndex }) {
     // console.log(err[name]);
     return (
         <>
             <label className={`${className} `}>
                 <input
                     {...register}
+                    tabIndex={tabIndex}
                     className={`xl:rounded-[1rem] lg:rounded-[0.8rem] rounded-[0.4rem] xl:py-[1.0825rem] lg:py-[0.8rem] xl:px-[2.75rem] lg:px-[2rem] md:px-[1.5rem] md:py-[.5rem]] px-[1rem] py-[0.5rem] ${
                         err[name] ? "outline-red-600" : "outline-primary"
                     } w-full `}

@@ -8,12 +8,39 @@ import Story from "./components/Story";
 import Recap from "./components/Recap";
 import Footer from "./components/Footer";
 import "./index.css";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+import SendModal from "./components/reusable/SendModal";
 
 function App() {
+    const [isModalOpened, setIsModalOpened] = useState(false);
+    const [defaultModalData, setDefaultModalData] = useState({});
     useEffect(() => {
         window.history.scrollRestoration = "manual";
     }, []);
+    function onSubmitSuccess() {
+        setDefaultModalData(() => {
+            return {
+                ...{
+                    icon: "success",
+                    title: "Chúc mừng bạn!",
+                    content: "Bạn đã đăng ký thông tin thành công.",
+                },
+            };
+        });
+        setIsModalOpened(() => true);
+    }
+    function onSubmitError() {
+        setDefaultModalData(() => {
+            return {
+                ...{
+                    icon: "error",
+                    title: "Lỗi không xác định!",
+                    content: "Có vẻ như đang có vấn đề nghiêm trọng xảy ra.",
+                },
+            };
+        });
+        setIsModalOpened(() => true);
+    }
     return (
         <>
             <Header />
@@ -21,11 +48,15 @@ function App() {
                 <Overview />
                 <Problem />
                 <Solution />
-                <Survey />
+                <Survey onSubmitSuccess={onSubmitSuccess} onSubmitError={onSubmitError} />
                 <Story />
-                <Recap />
+                <Recap onSubmitSuccess={onSubmitSuccess} onSubmitError={onSubmitError} />
             </Main>
             <Footer />
+            <SendModal
+                openState={[isModalOpened, setIsModalOpened]}
+                defaultModalData={defaultModalData}
+            />
         </>
     );
 }

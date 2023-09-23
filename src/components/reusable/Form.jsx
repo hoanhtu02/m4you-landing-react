@@ -37,12 +37,13 @@ function getProvinceWithoutPrefix(fullName) {
         .at(2)
         .trim();
 }
-function Form() {
+function Form({ onSubmitSuccess, onSubmitError }) {
     const {
         register,
         getValues,
         reset,
         setValue,
+        setError,
         handleSubmit,
         formState: { errors, isSubmitSuccessful },
     } = useForm();
@@ -64,11 +65,11 @@ function Form() {
                 setListProvince(() => [...temp]);
                 // console.log(object);
             } catch (err) {
-                alert(err);
+                alert("Rate limit request api https://vapi.vnappmob.com/api/province");
             }
         }
         fetchProvince();
-    }, [dataForm]);
+    }, []);
 
     useEffect(() => {
         if (isSubmitSuccessful) {
@@ -82,17 +83,33 @@ function Form() {
             });
         }
     }, [isSubmitSuccessful, reset]);
+
+    useEffect(() => {
+        async function sendData() {
+            try {
+                if (!isSubmitSuccessful) return;
+                // console.log(dataForm);
+                // throw new Error(); // Test error
+                await fetch("https://api-dev.vimoos.online/landing-page", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify(dataForm),
+                });
+                onSubmitSuccess();
+            } catch (err) {
+                onSubmitError();
+            }
+        }
+        sendData();
+    }, [dataForm, isSubmitSuccessful]);
     function onSubmitValid(data) {
         data.landingPageType = "INFO";
-        console.log(data);
-        setDataForm(data);
-        fetch("https://api-dev.vimoos.online/api/landing-page", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify(data),
-        }).then();
+        // console.log(data);
+        setDataForm(() => {
+            return { ...data };
+        });
         reset("", { keepValues: false });
     }
     const handleSelect = (val, name) => {
@@ -108,6 +125,7 @@ function Form() {
                     placeholder="Họ và tên của bạn*"
                     err={errors}
                     name={"name"}
+                    tabIndex={1}
                     className={"order-1 md:order-none "}
                 />
 
@@ -117,6 +135,7 @@ function Form() {
                     name={"phase"}
                     list={listPhase}
                     err={errors}
+                    tabIndex={4}
                     className={"order-4 md:order-none"}
                     formState={[getValues, handleSelect]}
                 />
@@ -130,15 +149,26 @@ function Form() {
                     })}
                     type="text"
                     err={errors}
+                    tabIndex={2}
                     className={"order-2 md:order-none"}
                     name="phone"
                     placeholder="Số điện thoại*"
                 />
                 <Select
-                    register={register("provinceName", { required: "Vui lòng chọn 1 lựa chọn" })}
+                    register={register("provinceName", {
+                        validate: (value) =>
+                            Boolean(
+                                listProvince.find((item) => {
+                                    return item.title === value;
+                                })
+                            ) || "Vui lòng chọn 1 lựa chọn",
+                        required: "Vui lòng chọn 1 lựa chọn",
+                    })}
+                    setError={setError}
                     title={"Tỉnh thành*"}
                     name={"provinceName"}
                     list={listProvince}
+                    tabIndex={5}
                     err={errors}
                     className={"order-5 md:order-none"}
                     formState={[getValues, handleSelect]}
@@ -153,12 +183,14 @@ function Form() {
                     })}
                     type="text"
                     placeholder="Email*"
+                    tabIndex={3}
                     err={errors}
                     className={"order-3 md:order-none"}
                     name="email"
                 />
                 <div className=" flex flex-col order-6 md:order-none md:col-start-2 md:col-end-3 md:row-start-3 md:row-end-5">
                     <textarea
+                        tabIndex={6}
                         className={`xl:rounded-[1rem] lg:rounded-[0.8rem] rounded-[0.4rem]  xl:py-[1.0825rem] xl:px-[2.75rem]  lg:py-[0.8rem] lg:pl-[1.8rem] lg:pr-[0.8rem]  md:px-[1.5rem] md:py-[.5rem]  px-[1rem] py-[0.5rem] ${
                             errors["desire"] ? "outline-red-600" : "outline-primary"
                         } w-full`}

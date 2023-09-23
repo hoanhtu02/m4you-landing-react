@@ -13,7 +13,7 @@ export default function SlidePrevButton({ slide }) {
             <img
                 src="assets/icons/arr-left.png"
                 alt="Prev"
-                className="absolute top-1/2 left-1/2 translate-x-[-50%] translate-y-[-50%] md:h-[10px] lg:w-[30px] lg:h-[20px]"
+                className="absolute top-1/2 left-1/2 translate-x-[-50%] translate-y-[-50%] md:h-[10px] lg:w-[30px] lg:h-[20px] w-[17px]"
             />
         </button>
     );

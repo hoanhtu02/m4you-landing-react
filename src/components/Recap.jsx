@@ -1,13 +1,48 @@
+import { useState } from "react";
 import Button from "./reusable/Button";
 import Title from "./reusable/Title";
 import { useForm } from "react-hook-form";
-export default function Recap() {
+import { useEffect } from "react";
+export default function Recap({ onSubmitSuccess, onSubmitError }) {
     const {
         register,
         handleSubmit,
-        formState: { errors },
+        reset,
+        formState: { errors, isSubmitSuccessful },
     } = useForm();
 
+    const [data, setData] = useState({});
+
+    useEffect(() => {
+        if (isSubmitSuccessful) {
+            reset({
+                email: "",
+            });
+        }
+    }, [isSubmitSuccessful, reset]);
+    useEffect(
+        function () {
+            async function sendMail() {
+                try {
+                    if (!isSubmitSuccessful) return;
+                    // console.log(data);
+                    await fetch("https://api-dev.vimoos.online/landing-page", {
+                        method: "POST",
+                        headers: {
+                            "Content-Type": "application/json",
+                        },
+                        body: JSON.stringify(data),
+                    });
+                    // throw new Error();
+                    onSubmitSuccess();
+                } catch (err) {
+                    onSubmitError();
+                }
+            }
+            sendMail();
+        },
+        [data, isSubmitSuccessful]
+    );
     return (
         <section className="flex md:flex-row flex-col  justify-between mt-[4rem] md:mx-[2.5rem] mx-[1rem] gap-20">
             <div className="flex flex-col justify-center items-center sm:items-start gap-y-[1.3125rem] md:w-8/12">
@@ -21,13 +56,10 @@ export default function Recap() {
                     className="flex justify-between gap-7 text-lg md:w-full sm:w-8/12 w-full"
                     onSubmit={handleSubmit(function (data) {
                         data.landingPageType = "APP";
-                        fetch("https://api-dev.vimoos.online/api/landing-page", {
-                            method: "POST",
-                            headers: {
-                                "Content-Type": "application/json",
-                            },
-                            body: JSON.stringify(data),
-                        }).then((response) => console.log(response));
+                        setData(() => {
+                            return { ...data };
+                        });
+                        reset("", { keepValues: false });
                     })}
                 >
                     <input

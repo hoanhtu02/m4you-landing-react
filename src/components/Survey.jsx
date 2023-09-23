@@ -2,7 +2,7 @@ import Form from "./reusable/Form";
 import Icon from "./reusable/Icon";
 import SectionTitle from "./reusable/SectionTitle";
 
-export default function Survey() {
+export default function Survey({ onSubmitSuccess, onSubmitError }) {
     return (
         <section
             name="surveyFormContainer"
@@ -21,8 +21,8 @@ export default function Survey() {
                             Làm sao để phát triển tài chính cá nhân?
                         </SectionTitle>
                         <p className="xl:text-small lg:text-lg-small text-base md:mt-[1rem] mt-3 md:col-span-1 col-span-2">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras tincidunt
-                            ante felis, vel vehicula justo semper sed.
+                            Bạn vui lòng chia sẻ giúp M4YOU một số thông tin để chúng tôi có thể
+                            phục vụ bạn tốt nhất, Xin cảm ơn!
                         </p>
                     </div>
                     <img
@@ -31,7 +31,7 @@ export default function Survey() {
                         alt="Flower"
                     />
                 </div>
-                <Form />
+                <Form onSubmitSuccess={onSubmitSuccess} onSubmitError={onSubmitError} />
             </div>
         </section>
     );

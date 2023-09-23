@@ -6,7 +6,7 @@ import Slider from "./story/Slider";
 export default function Story() {
     return (
         <section className=" rounded-3xl  w-full mx-auto mt-[6.625rem] md:pb-0 bg-tertiary">
-            <div className={"text-center pt-[4rem] w-10/12 mx-auto"}>
+            <div className={"text-center pt-[3rem] w-10/12 mx-auto"}>
                 <Title className={"text-2xl"}>
                     Câu chuyện ra đời của M4YOU
                 </Title>
