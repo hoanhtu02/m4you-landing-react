@@ -161,7 +161,7 @@ function Form({ onSubmitSuccess, onSubmitError }) {
                                 listProvince.find((item) => {
                                     return item.title === value;
                                 })
-                            ) || "Vui lòng chọn 1 lựa chọn",
+                            ) || "Tỉnh/thành không hợp lệ.",
                         required: "Vui lòng chọn 1 lựa chọn",
                     })}
                     setError={setError}

@@ -65,6 +65,7 @@ function Select({ className, name, title, list = [], formState, register, err, t
                         if (!valueLi) return;
                         const obj = list.find((val) => val.value === valueLi);
                         handleSelect(obj.title, name);
+                        setFilterList(() => []);
                     }}
                 >
                     {(() => (filterList.at(0) ? filterList : list))().map((val, idx) => (

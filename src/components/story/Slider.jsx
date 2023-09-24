@@ -12,7 +12,7 @@ function Slider() {
         <Swiper
             modules={[FreeMode]}
             spaceBetween={30}
-            slidesPerView={1.4}
+            slidesPerView={1.3}
             breakpoints={{
                 0: {
                     slidesPerView: 1,
@@ -35,11 +35,11 @@ function Slider() {
                     spaceBetween: 40,
                 },
                 1280: {
-                    slidesPerView: 1.3,
+                    slidesPerView: 1.5,
                     spaceBetween: 40,
                 },
             }}
-            className="mt-10 xl:ml-12"
+            className="mt-10 xl:ml-[80px]"
             onSlideChange={(swiper) => setIndex(swiper.activeIndex)}
             // onSwiper={(swiper) => console.log(swiper)}
         >

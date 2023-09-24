@@ -64,20 +64,27 @@ export default function Recap({ onSubmitSuccess, onSubmitError }) {
                 >
                     <input
                         {...register("email", {
-                            required: "Please fill this fields",
+                            required: "Vui lòng điền vào email của bạn",
                             pattern: {
                                 value: /^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/g,
-                                message: "Email is not valid.",
+                                message: "Email không hợp lệ.",
                             },
                         })}
                         required={true}
                         className={`border-2 xl:p-[.6rem_1.75rem] lg:p-[.6rem_1.75rem] md:p-[.6rem_1.25rem] p-[.6rem_1.25rem] rounded-[.8rem] w-full ${
                             errors["email"] ? "outline-red-600" : "outline-primary"
                         }`}
-                        placeholder={"Your email here"}
+                        placeholder={"Email của bạn"}
                     />
                     <Button isRedirect={false}>Submit</Button>
                 </form>
+                {errors["email"] ? (
+                    <span className={`text-red-600 font-[400] text-[0.85rem] mt-[-10px] mr-auto`}>
+                        {errors["email"].message}
+                    </span>
+                ) : (
+                    ""
+                )}
             </div>
             <img
                 src="assets/images/iphone.png"

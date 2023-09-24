@@ -3,7 +3,7 @@ import SectionTitle from "./reusable/SectionTitle";
 
 export default function Problem() {
     return (
-        <section className="max-w-standard mx-auto mb-20 lg:mt-52 md:mt-16 sm:p-[2.5rem] p-[2rem_1rem] flex flex-col md:grid grid-cols-2 xl:gap-[4rem]  bg-tertiary xl:rounded-[1.875rem] relative xl:shadow-md">
+        <section className="max-w-standard mx-auto  mb-20 lg:mt-52 md:mt-16 sm:p-[2.5rem] p-[2rem_1rem] flex flex-col md:grid grid-cols-2 xl:gap-[4rem]  bg-tertiary xl:rounded-[1.875rem] relative xl:shadow-md">
             <div>
                 <Icon src={" assets/icons/ask.png"} alt="Ask icon" />
                 <SectionTitle

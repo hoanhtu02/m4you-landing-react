@@ -37,6 +37,32 @@ html {
         margin-left: 40px;
     }
 } */
+
+@media screen and (max-width: 1536px) {
+    .swiper {
+        width: 1445px;
+        margin-left: 30px;
+    }
+}
+
+@media screen and (max-width: 1480px) {
+    .swiper {
+        width: 1360px;
+        margin: 40px auto 0;
+    }
+}
+@media screen and (max-width: 1430px) {
+    .swiper {
+        width: 1300px;
+        margin: 40px auto 0;
+    }
+}
+@media screen and (max-width: 1370px) {
+    .swiper {
+        width: 1240px;
+        margin: 30px auto 0;
+    }
+}
 @media screen and (max-width: 1280px) {
     .swiper {
         width: 1145px;
@@ -50,9 +76,23 @@ html {
         margin-left: 40px;
     }
 }
+@media screen and (max-width: 1150px) {
+    .swiper {
+        max-width: 1050px;
+        margin-right: 0;
+        margin-left: 40px;
+    }
+}
 @media screen and (max-width: 1100px) {
     .swiper {
         max-width: 1020px;
+        margin-right: 0;
+        margin-left: 40px;
+    }
+}
+@media screen and (max-width: 1060px) {
+    .swiper {
+        max-width: 970px;
         margin-right: 0;
         margin-left: 40px;
     }
@@ -116,27 +156,27 @@ html {
 }
 @media screen and (max-width: 640px) {
     .swiper {
-        width: 620px;
+        width: 570px;
         margin-left: 20px;
     }
 }
 @media screen and (max-width: 600px) {
     .swiper {
-        width: 570px;
+        width: 530px;
         margin-left: 20px;
     }
 }
 
 @media screen and (max-width: 558px) {
     .swiper {
-        width: 515px;
+        width: 505px;
         margin-left: 10px;
     }
 }
 
 @media screen and (max-width: 501px) {
     .swiper {
-        width: 475px;
+        width: 470px;
         margin-left: 10px;
     }
 }

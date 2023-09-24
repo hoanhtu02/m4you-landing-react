@@ -4,11 +4,11 @@ import SectionTitle from "./reusable/SectionTitle";
 import List from "./reusable/List";
 export default function Solution() {
     return (
-        <section className="max-w-standard mx-auto  md:px-[1.8rem] xl:px-0 lg:mt-[6.875rem] md:mt-[2rem] lg:mb-20 md:mb-14 ">
+        <section className="max-w-standard mx-auto md:px-[1.8rem] xl:px-0 lg:mt-[6.875rem] md:mt-[2rem] lg:mb-20 md:mb-14 ">
             <Title className={"text-center mx-auto mb-[2.4rem]"}>
                 <p>Tư duy và công cụ</p> <p>hỗ trợ tài chính cá nhân</p>
             </Title>
-            <div className="flex flex-col gap-[2rem] md:grid xl:grid-cols-2 lg:grid-cols-[460px_1fr] md:grid-cols-[320px_1fr] items-center xl:gap-10 lg:gap-x-[2rem] md:gap-[1rem] justify-between">
+            <div className="flex flex-col gap-[2rem] md:grid xl:grid-cols-[50%_43%] lg:grid-cols-[460px_1fr] md:grid-cols-[40%_50%] items-center xl:gap-10 lg:gap-x-[2rem] md:gap-[1rem] justify-between">
                 <img
                     loading="lazy"
                     className="xl:w-10/12 md:w-auto w-[20rem] xl:mx-0 mx-auto order-1 md:order-none"
@@ -16,7 +16,7 @@ export default function Solution() {
                     alt="Graph"
                 />
                 <div className="md:rounded-[1.875rem] bg-tertiary  xl:shadow-md">
-                    <div className="xl:p-[2.5rem_1.5rem] lg:p-[2rem] md:p-[1.2rem] sm:p-[1.2rem]  p-[2.5rem_1rem]">
+                    <div className="xl:p-[2rem_1.5rem] lg:p-[2rem] md:p-[1.2rem] sm:p-[1.2rem]  p-[2.5rem_1rem]">
                         <Icon
                             className={" md:w-[2.4rem] md:py-[11px] w-auto"}
                             src={" assets/icons/tips.png"}

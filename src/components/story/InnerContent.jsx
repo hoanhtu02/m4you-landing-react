@@ -1,9 +1,9 @@
 function InnerContent({ index = 1, children }) {
     return (
         <div
-            className={`md:shadow-sm grid md:grid-cols-[55%_1fr] md:grid-rows-none  grid-cols-1 ${
+            className={`md:shadow-sm grid md:grid-cols-[57%_1fr] md:grid-rows-none  grid-cols-1 ${
                 index === 1 ? "pb-0" : " md:py-[1rem]"
-            } grid-rows-1 xl:gap-x-[3rem] lg:gap-[1rem] xl:pl-[3rem] xl:pr-[1rem] lg:px-[2rem] md:px-[1.4rem]  p-[1.5rem]  bg-white md:rounded-[2.625rem]  rounded-[1.625rem] md:items-center md:justify-start h-full`}
+            } grid-rows-1 xl:gap-x-[2.4rem] lg:gap-[1rem] xl:pl-[3rem] xl:pr-[1rem] lg:px-[2rem] md:px-[1.4rem]  p-[1.5rem]  bg-white md:rounded-[2.625rem]  rounded-[1.625rem] md:items-center md:justify-start h-full`}
         >
             <div
                 className={`text-justify ${
