@@ -17,12 +17,12 @@ html {
     grid-template-rows: min-content minmax(min-content, max-content) 1fr;
     overflow: hidden;
 }
-.swiper {
+/* .swiper {
     width: 1160px;
     margin-right: 0px;
     margin-left: 40px;
     margin-top: 50px;
-}
+} */
 /* @media screen and (min-width: 1370px) {
     .swiper {
         width: 1200px;

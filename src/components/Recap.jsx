@@ -44,7 +44,7 @@ export default function Recap({ onSubmitSuccess, onSubmitError }) {
         [data, isSubmitSuccessful]
     );
     return (
-        <section className="flex md:flex-row flex-col  justify-between mt-[4rem] md:mx-[2.5rem] mx-[1rem] gap-20">
+        <section className="max-w-standard mx-auto  flex md:flex-row flex-col  justify-between mt-[4rem] md:mx-[2.5rem]gap-20">
             <div className="flex flex-col justify-center items-center sm:items-start gap-y-[1.3125rem] md:w-8/12">
                 <Title className={"text-center sm:text-left"}>
                     <p>Ứng dụng M4YOU</p> sẽ sớm ra mắt

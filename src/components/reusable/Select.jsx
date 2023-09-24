@@ -14,8 +14,17 @@ function Select({ className, name, title, list = [], formState, register, err, t
     function onInput(e) {
         const filter = e.currentTarget.value;
         setFilterList(() => [
-            ...list.filter((val) => toLowerCaseNonAccentVietnamese(val.title).match(filter)),
+            ...list.filter(
+                (val) =>
+                    val.title.startsWith(filter) ||
+                    val.title.toLowerCase().startsWith(filter.toLowerCase()) ||
+                    toLowerCaseNonAccentVietnamese(val.title).startsWith(
+                        toLowerCaseNonAccentVietnamese(filter)
+                    ) ||
+                    val.title.toLowerCase().startsWith(filter.toLowerCase())
+            ),
         ]);
+        setIsFocus(true);
     }
     return (
         <div className={`${className} `}>
@@ -62,7 +71,7 @@ function Select({ className, name, title, list = [], formState, register, err, t
                         <li
                             key={idx}
                             value={val.value}
-                            className=" xl:py-[1.0825rem] xl:px-[2.75rem]  lg:py-[0.8rem] lg:px-[2rem] md:basis-full md:h-[3.75rem]  px-[1rem] py-[0.5rem] hover:bg-tertiary cursor-pointer"
+                            className=" xl:py-[1.0825rem] xl:px-[2.75rem]  lg:py-[0.8rem] lg:px-[2rem] md:h-[3.75rem]  px-[1rem] py-[0.5rem] hover:bg-tertiary cursor-pointer  flex-[0_0_auto]"
                         >
                             {val.title}
                         </li>

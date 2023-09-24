@@ -6,7 +6,7 @@ export default function Survey({ onSubmitSuccess, onSubmitError }) {
     return (
         <section
             name="surveyFormContainer"
-            className="w-full mt-[6.875rem] xl:pb-4 lg:pb-[3rem] md:pb-[2rem] pb-6 xl:rounded-[1.875rem] bg-tertiary  xl:shadow-md"
+            className="max-w-standard mx-auto  mt-[6.875rem] xl:pb-4 lg:pb-[3rem] md:pb-[2rem] pb-6 xl:rounded-[1.875rem] bg-tertiary  xl:shadow-md"
         >
             <div className="md:p-[2rem_2rem_1.5rem] sm:p-[1rem]  p-[2rem_1rem]">
                 <div className="grid lg:grid-cols-[1fr_28.125rem] md:grid-cols-[70%_1fr] sm:grid-cols-[70%_1fr] grid-cols-1 relative">
@@ -22,7 +22,7 @@ export default function Survey({ onSubmitSuccess, onSubmitError }) {
                         </SectionTitle>
                         <p className="xl:text-small lg:text-lg-small text-base md:mt-[1rem] mt-3 md:col-span-1 col-span-2">
                             Bạn vui lòng chia sẻ giúp M4YOU một số thông tin để chúng tôi có thể
-                            phục vụ bạn tốt nhất, Xin cảm ơn!
+                            phục vụ bạn tốt nhất. Xin cảm ơn!
                         </p>
                     </div>
                     <img

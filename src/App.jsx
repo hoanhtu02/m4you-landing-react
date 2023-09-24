@@ -34,8 +34,9 @@ function App() {
             return {
                 ...{
                     icon: "error",
-                    title: "Lỗi không xác định!",
-                    content: "Có vẻ như đang có vấn đề nghiêm trọng xảy ra.",
+                    title: "Xin lỗi bạn!",
+                    content:
+                        "Hệ thống đang gặp vấn đề. bạn vui lòng thử lại lần sau nhé! Cảm ơn bạn!",
                 },
             };
         });

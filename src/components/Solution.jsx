@@ -4,7 +4,7 @@ import SectionTitle from "./reusable/SectionTitle";
 import List from "./reusable/List";
 export default function Solution() {
     return (
-        <section className="w-full md:px-[1.8rem] xl:px-0 lg:mt-[6.875rem] md:mt-[2rem] lg:mb-20 md:mb-14 ">
+        <section className="max-w-standard mx-auto  md:px-[1.8rem] xl:px-0 lg:mt-[6.875rem] md:mt-[2rem] lg:mb-20 md:mb-14 ">
             <Title className={"text-center mx-auto mb-[2.4rem]"}>
                 <p>Tư duy và công cụ</p> <p>hỗ trợ tài chính cá nhân</p>
             </Title>
@@ -24,7 +24,7 @@ export default function Solution() {
                         <SectionTitle className={"xl:mt-2 lg:mt-[1rem] md:mt-4 mt-2"}>
                             M4U mang đến cho bạn
                         </SectionTitle>
-                        <div className="xl:text-lg lg:text-lg-small md:text-base text-base mt-[.6rem] lg:mt-[.8rem] md:mt-2">
+                        <div className="xl:text-lg lg:text-lg-small md:text-base text-base mt-[.6rem] lg:mt-[.8rem] md:mt-2 leading-[24.38px]">
                             <List
                                 title={"Những tư duy, bài học được đúc kết từ trải nghiệm thực tế"}
                                 list={[

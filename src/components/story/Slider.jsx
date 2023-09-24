@@ -11,24 +11,23 @@ function Slider() {
     return (
         <Swiper
             modules={[FreeMode]}
-            spaceBetween={40}
+            spaceBetween={30}
             slidesPerView={1.4}
             breakpoints={{
                 0: {
                     slidesPerView: 1,
                     spaceBetween: 20,
                 },
-                362:{
+                362: {
                     slidesPerView: 1.1,
                     spaceBetween: 20,
-
                 },
                 768: {
                     slidesPerView: 1,
                     spaceBetween: 20,
                 },
                 1025: {
-                    slidesPerView: 1.3,
+                    slidesPerView: 1.2,
                     spaceBetween: 40,
                 },
                 1100: {
@@ -36,22 +35,23 @@ function Slider() {
                     spaceBetween: 40,
                 },
                 1280: {
-                    slidesPerView: 1.4,
+                    slidesPerView: 1.3,
                     spaceBetween: 40,
                 },
             }}
+            className="mt-10 xl:ml-12"
             onSlideChange={(swiper) => setIndex(swiper.activeIndex)}
             // onSwiper={(swiper) => console.log(swiper)}
         >
             <SwiperSlide style={{ borderRadius: "2.625rem" }}>
                 <InnerContent index={1} key={1}>
-                    <p className="xl:text-medium lg:!text-lg-medium text-base font-bold">
+                    <p className="xl:text-[1.4rem] lg:text-xl leading-6 text-base font-bold">
                         Mỗi người chúng ta đều mong muốn phát triển cuộc sống tài chính cá nhân của
                         mình.
                     </p>{" "}
-                    <p className="xl:text-sm lg:text-lg text-sm leading-6">
-                        &nbsp;Mỗi người sẽ có những lựa chọn, cách làm khác nhau. Có người tập trung
-                        vào việc phát triển sự nghiệp, leo lên các bậc thang cao hơn để đạt được thu
+                    <p className="xl:text-base lg:text-base text-sm leading-6">
+                        Mỗi người sẽ có những lựa chọn, cách làm khác nhau. Có người tập trung vào
+                        việc phát triển sự nghiệp, leo lên các bậc thang cao hơn để đạt được thu
                         nhập tốt hơn. Có người đầu tư vào thị trường chứng khoán để tạo thêm nguồn
                         thu nhập theo thời gian. Có người mua bất động sản để tạo ra dòng tiền cho
                         thuê hàng tháng hoặc bán tài sản với giá cao trong tương lai. Có người hợp
