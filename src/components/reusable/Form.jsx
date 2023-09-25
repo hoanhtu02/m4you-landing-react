@@ -90,6 +90,7 @@ function Form({ onSubmitSuccess, onSubmitError }) {
                 if (!isSubmitSuccessful) return;
                 // console.log(dataForm);
                 // throw new Error(); // Test error
+                onSubmitSuccess();
                 const response = await fetch("https://api-dev.vimoos.online/landing-page", {
                     method: "POST",
                     headers: {
@@ -97,8 +98,8 @@ function Form({ onSubmitSuccess, onSubmitError }) {
                     },
                     body: JSON.stringify(dataForm),
                 });
+                if (!response.ok) throw new Error();
                 console.log(response);
-                onSubmitSuccess();
             } catch (err) {
                 onSubmitError();
             }

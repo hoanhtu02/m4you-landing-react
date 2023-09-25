@@ -12,34 +12,55 @@ function Slider() {
         <Swiper
             modules={[FreeMode]}
             spaceBetween={30}
-            slidesPerView={1.3}
+            slidesPerView={1.5}
+            slidesOffsetAfter={60}
+            speed={800}
+            slidesOffsetBefore={60}
             breakpoints={{
                 0: {
                     slidesPerView: 1,
                     spaceBetween: 20,
+                    slidesOffsetAfter: 0,
+                    slidesOffsetBefore: 0,
                 },
                 362: {
                     slidesPerView: 1.1,
                     spaceBetween: 20,
+                    slidesOffsetAfter: 0,
+                    slidesOffsetBefore: 0,
                 },
                 768: {
                     slidesPerView: 1,
                     spaceBetween: 20,
+                    slidesOffsetAfter: 0,
+                    slidesOffsetBefore: 0,
                 },
                 1025: {
                     slidesPerView: 1.2,
-                    spaceBetween: 40,
+                    spaceBetween: 30,
+                    slidesOffsetAfter: 0,
+                    slidesOffsetBefore: 0,
                 },
                 1100: {
                     slidesPerView: 1.35,
-                    spaceBetween: 40,
+                    spaceBetween: 30,
+                    slidesOffsetAfter: 0,
+                    slidesOffsetBefore: 0,
                 },
                 1280: {
                     slidesPerView: 1.5,
+                    spaceBetween: 30,
+                    slidesOffsetAfter: 30,
+                    slidesOffsetBefore: 30,
+                },
+                1481: {
+                    slidesPerView: 1.5,
                     spaceBetween: 40,
+                    slidesOffsetAfter: 60,
+                    slidesOffsetBefore: 60,
                 },
             }}
-            className="mt-10 xl:ml-[80px]"
+            className="mt-10"
             onSlideChange={(swiper) => setIndex(swiper.activeIndex)}
             // onSwiper={(swiper) => console.log(swiper)}
         >

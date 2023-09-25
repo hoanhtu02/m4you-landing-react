@@ -25,6 +25,7 @@ export default function Recap({ onSubmitSuccess, onSubmitError }) {
             async function sendMail() {
                 try {
                     if (!isSubmitSuccessful) return;
+                    onSubmitSuccess();
                     // console.log(data);
                     const response = await fetch("https://api-dev.vimoos.online/landing-page", {
                         method: "POST",
@@ -33,9 +34,9 @@ export default function Recap({ onSubmitSuccess, onSubmitError }) {
                         },
                         body: JSON.stringify(data),
                     });
+                    if (!response.ok) throw new Error();
                     console.log(response);
                     // throw new Error();
-                    onSubmitSuccess();
                 } catch (err) {
                     onSubmitError();
                 }
@@ -46,11 +47,11 @@ export default function Recap({ onSubmitSuccess, onSubmitError }) {
     );
     return (
         <section className="max-w-standard mx-auto  flex md:flex-row flex-col  justify-between mt-[4rem] md:mx-[2.5rem]gap-20">
-            <div className="flex flex-col justify-center items-center sm:items-start gap-y-[1.3125rem] md:w-8/12">
+            <div className="flex flex-col justify-center items-center sm:items-start gap-y-[1.3125rem] md:w-8/12 px-6">
                 <Title className={"text-center sm:text-left"}>
                     <p>Ứng dụng M4YOU</p> sẽ sớm ra mắt
                 </Title>
-                <p className="xl:text-xl lg:text-lg text-base ">
+                <p className="xl:text-xl lg:text-lg text-base">
                     Để lại email để nhận thông tin sớm nhất từ chúng tôi
                 </p>
                 <form
