@@ -2,7 +2,6 @@ import { useSwiper } from "swiper/react";
 
 export default function SlidePrevButton({ slide }) {
     const swiper = useSwiper();
-
     return (
         <button
             className={`relative ${

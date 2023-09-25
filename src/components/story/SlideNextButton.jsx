@@ -1,8 +1,6 @@
 import { useSwiper } from "swiper/react";
-
 export default function SlideNextButton({ slide }) {
     const swiper = useSwiper();
-
     return (
         <button
             className={`relative ${
