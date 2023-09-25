@@ -90,13 +90,14 @@ function Form({ onSubmitSuccess, onSubmitError }) {
                 if (!isSubmitSuccessful) return;
                 // console.log(dataForm);
                 // throw new Error(); // Test error
-                await fetch("https://api-dev.vimoos.online/landing-page", {
+                const response = await fetch("https://api-dev.vimoos.online/landing-page", {
                     method: "POST",
                     headers: {
                         "Content-Type": "application/json",
                     },
                     body: JSON.stringify(dataForm),
                 });
+                console.log(response);
                 onSubmitSuccess();
             } catch (err) {
                 onSubmitError();
@@ -120,7 +121,7 @@ function Form({ onSubmitSuccess, onSubmitError }) {
         <form onSubmit={handleSubmit(onSubmitValid)}>
             <div className="grid grid-cols-1 md:grid-cols-2 xl:gap-x-[4rem] lg:gap-x-[3.5rem] sm:gap-y-[1.4rem] md:gap-x-[3rem] gap-y-4 xl:text-lg md:text-sm lg:text-base text-base md:mt-[2rem] mt-[1rem] items-start">
                 <Input
-                    register={register("name", { required: "Vui lòng điền đầy đủ họ tên" })}
+                    register={register("name", { required: "Vui lòng nhập họ và tên của bạn!" })}
                     type="text"
                     placeholder="Họ và tên của bạn*"
                     err={errors}
@@ -130,7 +131,9 @@ function Form({ onSubmitSuccess, onSubmitError }) {
                 />
 
                 <Select
-                    register={register("phase", { required: "Vui lòng chọn 1 lựa chọn" })}
+                    register={register("phase", {
+                        required: "Vui lòng chọn bạn đang ở giai đoạn nào!",
+                    })}
                     title={"Bạn đang ở giai đoạn*"}
                     name={"phase"}
                     list={listPhase}
@@ -141,10 +144,11 @@ function Form({ onSubmitSuccess, onSubmitError }) {
                 />
                 <Input
                     register={register("phone", {
-                        required: "Vui lòng nhập vào số điện thoại",
+                        required: "Vui lòng nhập số điện thoại của bạn!",
                         pattern: {
                             value: /^\(?(\d{3})\)?[- ]?(\d{3})[- ]?(\d{4})$/g,
-                            message: "Số điện thoại không hợp lệ",
+                            message:
+                                "Bạn vui lòng nhập đúng định dạng số điện thoại 10 số (VD: 0983688507)",
                         },
                     })}
                     type="text"
@@ -162,7 +166,7 @@ function Form({ onSubmitSuccess, onSubmitError }) {
                                     return item.title === value;
                                 })
                             ) || "Tỉnh/thành không hợp lệ.",
-                        required: "Vui lòng chọn 1 lựa chọn",
+                        required: "Vui lòng chọn tỉnh thành bạn đang sinh sống!",
                     })}
                     setError={setError}
                     title={"Tỉnh thành*"}
@@ -175,10 +179,11 @@ function Form({ onSubmitSuccess, onSubmitError }) {
                 />
                 <Input
                     register={register("email", {
-                        required: "Vui lòng điền email của bạn",
+                        required: "Vui lòng nhập email của bạn!",
                         pattern: {
                             value: /^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/g,
-                            message: "Email không hợp lệ",
+                            message:
+                                "Bạn vui lòng nhập đúng định dạng email! (VD: email_name@domain.com)",
                         },
                     })}
                     type="text"
@@ -196,7 +201,9 @@ function Form({ onSubmitSuccess, onSubmitError }) {
                         } w-full`}
                         placeholder="Nhu cầu, mong muốn được hỗ trợ là gì?"
                         rows={5.5}
-                        {...register("desire", { required: "Trường này không được để trống" })}
+                        {...register("desire", {
+                            required: "Bạn vui lòng chia sẻ mong muốn được M4YOU hỗ trợ!",
+                        })}
                     ></textarea>
                     {errors["desire"] ? (
                         <span className={`text-red-600 font-[400] text-[0.85rem] py-2`}>
@@ -206,8 +213,6 @@ function Form({ onSubmitSuccess, onSubmitError }) {
                         ""
                     )}
                 </div>
-
-                {/* TODO: CÒN SỬA PHẦN BUTTON DANH CHO MÀN HÌNH MD VÀ SM */}
                 <div className="col-start-1 col-end-2 row-start-7 row-end-8 md:col-start-1 md:col-end-2 md:row-start-4  md:row-end-5 md:mt-7 mt-3 ">
                     <Button className={""} isRedirect={false}>
                         Miễn phí 2 năm

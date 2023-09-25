@@ -20,8 +20,7 @@ function Select({ className, name, title, list = [], formState, register, err, t
                     val.title.toLowerCase().startsWith(filter.toLowerCase()) ||
                     toLowerCaseNonAccentVietnamese(val.title).startsWith(
                         toLowerCaseNonAccentVietnamese(filter)
-                    ) ||
-                    val.title.toLowerCase().startsWith(filter.toLowerCase())
+                    )
             ),
         ]);
         setIsFocus(true);
@@ -40,8 +39,9 @@ function Select({ className, name, title, list = [], formState, register, err, t
                     onClick={(e) => {
                         setIsFocus(() => true);
                     }}
-                    onBlur={() => {
+                    onBlur={(e) => {
                         setIsFocus(() => false);
+                        setFilterList(() => []);
                     }}
                     placeholder={title}
                 />

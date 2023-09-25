@@ -26,13 +26,14 @@ export default function Recap({ onSubmitSuccess, onSubmitError }) {
                 try {
                     if (!isSubmitSuccessful) return;
                     // console.log(data);
-                    await fetch("https://api-dev.vimoos.online/landing-page", {
+                    const response = await fetch("https://api-dev.vimoos.online/landing-page", {
                         method: "POST",
                         headers: {
                             "Content-Type": "application/json",
                         },
                         body: JSON.stringify(data),
                     });
+                    console.log(response);
                     // throw new Error();
                     onSubmitSuccess();
                 } catch (err) {

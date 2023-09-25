@@ -15,19 +15,35 @@ function SendModal({ openState, defaultModalData }) {
         >
             <div className="xl:w-auto md:w-8/12 w-10/12 flex flex-col items-center absolute top-1/2 left-1/2 translate-x-[-50%] translate-y-[-50%] md:pb-12 pb-8 bg-slate-50 rounded-xl shadow-md">
                 <img
-                    src={`assets/icons/${defaultModalData.icon}-300.gif`}
+                    rel={"preload"}
+                    src={`assets/icons/success-300.gif`}
                     srcSet={`
-                        assets/icons/${defaultModalData.icon}-100.gif 100w,
-                        assets/icons/${defaultModalData.icon}-150.gif 150w,
-                        assets/icons/${defaultModalData.icon}-200.gif 200w,
-                        assets/icons/${defaultModalData.icon}-300.gif 300w`}
+                        assets/icons/success-100.gif 100w,
+                        assets/icons/success-150.gif 150w,
+                        assets/icons/success-200.gif 200w,
+                        assets/icons/success-300.gif 300w`}
                     sizes="(max-width: 500px) 50vw,
                         (max-width: 768px) 50vw,
                         (max-width: 1024px) 33.3vw,
                         300px"
-                    alt={`${defaultModalData}`}
+                    className={`${defaultModalData.icon === "success" ? "inline" : "hidden"}`}
+                    alt={`${defaultModalData.title}`}
                 />
-
+                <img
+                    src={`assets/icons/error-300.gif`}
+                    rel={"preload"}
+                    srcSet={`
+                        assets/icons/error-100.gif 100w,
+                        assets/icons/error-150.gif 150w,
+                        assets/icons/error-200.gif 200w,
+                        assets/icons/error-300.gif 300w`}
+                    sizes="(max-width: 500px) 50vw,
+                        (max-width: 768px) 50vw,
+                        (max-width: 1024px) 33.3vw,
+                        300px"
+                    className={`${defaultModalData.icon === "error" ? "inline" : "hidden"}`}
+                    alt={`${defaultModalData.title}`}
+                />
                 <div className="text-center 2xl:px-32 xl:px-32 md:px-14 gap-6 flex flex-col">
                     <h1 className="xl:text-5xl lg:text-4xl md:text-3xl text-2xl font-bold">
                         {defaultModalData.title}
