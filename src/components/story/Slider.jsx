@@ -1,7 +1,9 @@
 import { Swiper, SwiperSlide } from "swiper/react";
-import { FreeMode, Keyboard } from "swiper/modules";
+import { FreeMode, Keyboard, Grid, A11y } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/free-mode";
+import "swiper/css/grid";
+import "swiper/css/a11y";
 import SlideNextButton from "./SlideNextButton";
 import SlidePrevButton from "./SlidePrevButton";
 import InnerContent from "./InnerContent";
@@ -10,7 +12,7 @@ function Slider() {
     const [index, setIndex] = useState(0);
     return (
         <Swiper
-            modules={[FreeMode, Keyboard]}
+            modules={[FreeMode, Keyboard, Grid, A11y]}
             spaceBetween={30}
             slidesPerView={1.5}
             slidesOffsetAfter={60}
@@ -56,8 +58,8 @@ function Slider() {
                 1280: {
                     slidesPerView: 1.5,
                     spaceBetween: 30,
-                    slidesOffsetAfter: 30,
-                    slidesOffsetBefore: 30,
+                    slidesOffsetAfter: 60,
+                    slidesOffsetBefore: 60,
                 },
                 1481: {
                     slidesPerView: 1.5,

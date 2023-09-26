@@ -15,7 +15,7 @@ export default function Survey({ onSubmitSuccess, onSubmitError }) {
                             <Icon className={""} src={"assets/icons/stock.png"} />
                         </div>
                         <SectionTitle
-                            className={"md:leading-[2.44rem] md:mt-[.6rem] pr-28 md:pr-0"}
+                            className={"md:leading-[2.44rem] md:mt-[.6rem] pr-24 md:pr-0"}
                         >
                             <p className="uppercase">mima mimo</p>
                             Làm sao để phát triển tài chính cá nhân?
@@ -26,7 +26,7 @@ export default function Survey({ onSubmitSuccess, onSubmitError }) {
                         </p>
                     </div>
                     <img
-                        className="absolute xl:top-[-60%] lg:top-[-50%] md:top-[-75%] md:right-[-4rem]  right-[-2rem] lg:right-0 lg:w-[15rem] md:w-[16rem] w-[9rem] top-[-5rem]"
+                        className="absolute xl:top-[-60%] lg:top-[-50%] md:top-[-75%] md:right-[-1rem] right-[-1rem] lg:right-0 lg:w-[15rem] md:w-[16rem] w-[9rem] top-[-5rem]"
                         src="assets/images/flower.png"
                         alt="Flower"
                     />

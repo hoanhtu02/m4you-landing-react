@@ -1,7 +1,7 @@
 export default function Footer() {
     return (
         <footer className="mt-[4rem] bg-tertiary p-[1rem]">
-            <div className="max-w-standard flex md:flex-row flex-col xl:justify-between xl:gap-0 lg:gap-9 gap-2 md:items-start items-center mx-auto md:p-[3rem_0] p-[2rem_0]">
+            <div className="max-w-standard flex md:flex-row flex-col xl:justify-between xl:gap-0 lg:gap-9 gap-2 md:items-start items-center mx-auto md:p-[2rem_0] p-[2rem_0]">
                 <div className="sm:w-fit w-2/5">
                     <img
                         src="assets/images/logo_bottom.png"
@@ -19,8 +19,8 @@ export default function Footer() {
                     </p>
                     <div className="">
                         <p>
-                            <span className="font-bold">Địa chỉ:</span> 189 - 197, Dương Bá Trạc,
-                            Phường 1, Quận 8, TP.Hồ Chí Minh
+                            <span className="font-bold">Địa chỉ:</span> 1465/19 Lê Văn Lương, Nhơn
+                            Đức, Nhà Bè, TP. Hồ Chí Minh
                         </p>{" "}
                     </div>
                     <p>
@@ -29,7 +29,7 @@ export default function Footer() {
                         <a href="tel:1900 252 538">0398 162 946</a>
                     </p>
                     <p className="">
-                        <span className="font-bold">©</span> Copyright 2020{" "}
+                        <span className="font-bold">©</span> Copyright 2023{" "}
                         <span className="font-bold">M4YOU</span>. All rights reserved.
                     </p>{" "}
                 </div>

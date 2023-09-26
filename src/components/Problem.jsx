@@ -14,7 +14,7 @@ export default function Problem() {
                     Bạn đang...
                 </SectionTitle>
                 <div className="xl:text-lg lg:text-lg-small text-base flex flex-wrap xl:gap-4 lg:gap-2 md:gap-2 gap-2 text-[#494646] xl:pr-[8rem] lg:pr-[7rem]">
-                    <p>Bạn đã từng làm nhiều cách khác nhau để phát triển tài chính cả nhân.</p>
+                    <p>Bạn đã từng làm nhiều cách khác nhau để phát triển tài chính cá nhân.</p>
                     <p>Bạn thiếu người thầy, người dẫn dắt, thiếu những góc nhìn và kiến thức.</p>
                     <p>
                         Bạn chưa có những công cụ hỗ trợ tập trung để giúp bạn hình dung rõ ràng,
