@@ -37,6 +37,19 @@ html {
         margin-left: 40px;
     }
 } */
+
+::-webkit-scrollbar {
+    width: 0;
+}
+.swiper {
+    width: 100vw;
+}
+
+@media screen and (min-width: 1400px) {
+    .swiper {
+        width: 100%;
+    }
+}
 .swiper-wrapper {
     display: grid;
     grid-template-rows: 1fr;

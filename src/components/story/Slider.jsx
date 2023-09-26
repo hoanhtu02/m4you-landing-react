@@ -1,9 +1,6 @@
 import { Swiper, SwiperSlide } from "swiper/react";
 import { FreeMode, Keyboard, Grid, A11y } from "swiper/modules";
-import "swiper/css";
-import "swiper/css/free-mode";
-import "swiper/css/grid";
-import "swiper/css/a11y";
+import "swiper/css/bundle";
 import SlideNextButton from "./SlideNextButton";
 import SlidePrevButton from "./SlidePrevButton";
 import InnerContent from "./InnerContent";
@@ -28,32 +25,32 @@ function Slider() {
                 0: {
                     slidesPerView: 1,
                     spaceBetween: 20,
-                    slidesOffsetAfter: 0,
-                    slidesOffsetBefore: 0,
+                    slidesOffsetAfter: 20,
+                    slidesOffsetBefore: 20,
                 },
                 362: {
                     slidesPerView: 1.1,
                     spaceBetween: 20,
-                    slidesOffsetAfter: 0,
-                    slidesOffsetBefore: 0,
+                    slidesOffsetAfter: 20,
+                    slidesOffsetBefore: 20,
                 },
                 768: {
                     slidesPerView: 1,
                     spaceBetween: 20,
-                    slidesOffsetAfter: 0,
-                    slidesOffsetBefore: 0,
+                    slidesOffsetAfter: 20,
+                    slidesOffsetBefore: 20,
                 },
                 1025: {
                     slidesPerView: 1.2,
                     spaceBetween: 30,
-                    slidesOffsetAfter: 0,
-                    slidesOffsetBefore: 0,
+                    slidesOffsetAfter: 30,
+                    slidesOffsetBefore: 30,
                 },
                 1100: {
                     slidesPerView: 1.35,
                     spaceBetween: 30,
-                    slidesOffsetAfter: 0,
-                    slidesOffsetBefore: 0,
+                    slidesOffsetAfter: 30,
+                    slidesOffsetBefore: 30,
                 },
                 1280: {
                     slidesPerView: 1.5,
