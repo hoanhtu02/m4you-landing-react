@@ -51,16 +51,16 @@ export default function Recap({ onSubmitSuccess, onSubmitError }) {
         [data, isSubmitSuccessful]
     );
     return (
-        <section className="max-w-standard mx-auto xl:w-full flex md:flex-row flex-col justify-between mt-[4rem] lg:mx-auto md:mx-[2.5rem] lg:gap-28  gap-10 lg:mb-12">
-            <div className="flex flex-col justify-center items-center sm:items-start gap-y-[1.3125rem] md:w-8/12 px-6">
-                <Title className={"text-center sm:text-left"}>
+        <section className="max-w-standard mx-auto w-full flex md:flex-row flex-col justify-between mt-[4rem] lg:gap-16 gap-0 lg:mb-12">
+            <div className="flex flex-col items-center xl:mt-32 lg:mt-24 md:mt-16 mt-0 md:items-start lg:gap-y-[2rem] gap-y-[1.3rem] lg:w-6/12 xl:px-0 md:px-8 px-4">
+                <Title className={"text-center md:text-left"}>
                     <p>Ứng dụng M4YOU</p> sẽ sớm ra mắt
                 </Title>
                 <p className="xl:text-xl lg:text-lg text-base">
                     Để lại email để nhận thông tin sớm nhất từ chúng tôi
                 </p>
                 <form
-                    className="grid grid-cols-[60%_35%] justify-between gap-7 text-lg md:w-full  w-full"
+                    className="grid grid-cols-[1fr_35%] justify-between sm:gap-7 gap-6 text-lg md:w-full w-full md:px-0 md:max-w-none max-w-md"
                     onSubmit={handleSubmit(function (data) {
                         data.landingPageType = "APP";
                         setData(() => {
@@ -107,7 +107,7 @@ export default function Recap({ onSubmitSuccess, onSubmitError }) {
             </div>
             <img
                 src="assets/images/iphone.png"
-                className="xl:w-[470px] lg:w-[400px] md:w-[250px] md:mt-0 mt-6 w-[300px] shrink-0 mx-auto"
+                className="xl:w-[550px] lg:w-[450px] md:w-[350px] md:mt-0 mt-6 w-[320px] shrink-0 mx-auto xl:translate-x-[10%]"
                 loading="lazy"
                 alt="Iphone"
             />

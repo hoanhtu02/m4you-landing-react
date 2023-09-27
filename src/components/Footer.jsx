@@ -1,12 +1,12 @@
 export default function Footer() {
     return (
         <footer className="mt-[4rem] bg-tertiary p-[1rem]">
-            <div className="max-w-standard flex md:flex-row flex-col xl:justify-between xl:gap-0 lg:gap-9 gap-2 md:items-start items-center mx-auto md:p-[2rem_0] p-[2rem_0]">
+            <div className="max-w-standard flex md:flex-row flex-col xl:gap-0 lg:gap-9 gap-2 md:items-start items-center mx-auto md:p-[2rem_0] p-[2rem_0]">
                 <div className="sm:w-fit w-2/5">
                     <img
                         src="assets/images/logo_bottom.png"
                         loading="lazy"
-                        className="mx-auto md:mx-0 mb-8 "
+                        className="mx-auto md:mx-0 mb-8 xl:translate-x-[-25%] lg:translate-x-[-16%] md:translate-x-[-15%]"
                         alt="Logo"
                     />
                 </div>
@@ -38,7 +38,7 @@ export default function Footer() {
                     href="https://www.facebook.com/m4you.vn"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="mt-6 md:mt-0 md:mr-10"
+                    className="mt-6 md:mt-0 md:mr-10 md:ml-auto"
                 >
                     <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -59,7 +59,9 @@ export default function Footer() {
                     </svg>
                 </a>
             </div>
-            <a href="https://lordicon.com/" hidden>Icons by Lordicon.com</a>
+            <a href="https://lordicon.com/" hidden>
+                Icons by Lordicon.com
+            </a>
         </footer>
     );
 }
