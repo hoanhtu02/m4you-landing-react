@@ -13,8 +13,8 @@ function Select({ className, name, title, list = [], formState, register, err, t
     const [filterList, setFilterList] = useState([]);
     function onInput(e) {
         const filter = e.currentTarget.value;
-        console.log(filter);
-        console.log(document.activeElement === e.currentTarget);
+        // console.log(filter);
+        // console.log(document.activeElement === e.currentTarget);
         setFilterList(() => [
             ...list.filter(
                 (val) =>

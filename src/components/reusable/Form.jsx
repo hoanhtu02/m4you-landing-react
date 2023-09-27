@@ -49,6 +49,7 @@ function Form({ onSubmitSuccess, onSubmitError }) {
     } = useForm();
     const [dataForm, setDataForm] = useState({});
     const [listProvince, setListProvince] = useState([]);
+    const [isPending, setIsPending] = useState(false);
     useEffect(() => {
         async function fetchProvince() {
             try {
@@ -90,7 +91,7 @@ function Form({ onSubmitSuccess, onSubmitError }) {
                 if (!isSubmitSuccessful) return;
                 // console.log(dataForm);
                 // throw new Error(); // Test error
-                onSubmitSuccess();
+                setIsPending(() => true);
                 const response = await fetch("https://api-dev.vimoos.online/landing-page", {
                     method: "POST",
                     headers: {
@@ -98,8 +99,12 @@ function Form({ onSubmitSuccess, onSubmitError }) {
                     },
                     body: JSON.stringify(dataForm),
                 });
+                setIsPending(() => false);
                 if (!response.ok) throw new Error();
-                console.log(response);
+                const result = await response.json();
+                console.log(result);
+                if (!result.success) return onSubmitError(result.data.message);
+                onSubmitSuccess();
             } catch (err) {
                 onSubmitError();
             }
@@ -214,9 +219,21 @@ function Form({ onSubmitSuccess, onSubmitError }) {
                         ""
                     )}
                 </div>
-                <div className="col-start-1 col-end-2 row-start-7 row-end-8 md:col-start-1 md:col-end-2 md:row-start-4  md:row-end-5 md:mt-7 mt-3 ">
-                    <Button className={""} isRedirect={false}>
-                        Miễn phí 2 năm
+                <div className="col-start-1 col-end-2 row-start-7 row-end-8 md:col-start-1 md:col-end-2 md:row-start-4  md:row-end-5 md:mt-7 mt-3">
+                    <Button
+                        className={`${isPending ? "w-1/2" : ""}`}
+                        isPending={isPending}
+                        isRedirect={false}
+                    >
+                        {!isPending ? (
+                            "Miễn phí 2 năm"
+                        ) : (
+                            <img
+                                src="assets/icons/loading.gif"
+                                alt="loading"
+                                className="block h-[25px] md:h-[27px] mx-auto"
+                            />
+                        )}
                     </Button>
                 </div>
             </div>

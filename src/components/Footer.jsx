@@ -34,7 +34,12 @@ export default function Footer() {
                     </p>{" "}
                 </div>
 
-                <a href="https://www.facebook.com/m4you.vn" className="mt-6 md:mt-0 md:mr-10">
+                <a
+                    href="https://www.facebook.com/m4you.vn"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="mt-6 md:mt-0 md:mr-10"
+                >
                     <svg
                         xmlns="http://www.w3.org/2000/svg"
                         x="0px"
@@ -54,6 +59,7 @@ export default function Footer() {
                     </svg>
                 </a>
             </div>
+            <a href="https://lordicon.com/" hidden>Icons by Lordicon.com</a>
         </footer>
     );
 }

@@ -38,7 +38,7 @@ export default function Solution() {
                                 parentClass={"font-bold mt-[1.5rem] lg:mt-[.8rem] md:mt-[.8rem]"}
                                 list={[
                                     "Giúp bạn hình dung được bức tranh tài chính của mình đang ở đâu.",
-                                    "Giúp bạn lập kế hoạch sau khi trả lời câu hỏi Tôi muốn gì? tôi phải bắt đầu từ đâu? và làm như thế nào.",
+                                    "Giúp bạn lập kế hoạch sau khi trả lời câu hỏi Tôi muốn gì? tôi phải bắt đầu từ đâu? và làm như thế nào?",
                                     "Giúp bạn dạy con trẻ những tư duy về tài chính để con có nền tảng cho tương lai.",
                                 ]}
                             />

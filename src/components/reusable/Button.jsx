@@ -1,8 +1,9 @@
 import { scroller } from "react-scroll";
-function Button({ children, className, isRedirect = true, onOpenModal }) {
+function Button({ children, className, isRedirect = true, onOpenModal, isPending = false }) {
     return (
         <button
-            type="submit"
+            type={`${isPending ? "button" : "submit"}`}
+            disabled={isPending}
             onClick={
                 onOpenModal ??
                 function () {

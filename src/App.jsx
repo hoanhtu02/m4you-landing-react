@@ -29,19 +29,24 @@ function App() {
         });
         setIsModalOpened(() => true);
     }
-    function onSubmitError() {
-        setDefaultModalData(() => {
-            return {
-                ...{
-                    icon: "error",
-                    title: "Xin lỗi bạn!",
-                    content:
-                        "Hệ thống đang gặp vấn đề. bạn vui lòng thử lại lần sau nhé! Cảm ơn bạn!",
-                },
-            };
-        });
-        setIsModalOpened(() => true);
+    function onSubmitError(message = null) {
+        let errorMessage = "Hệ thống đang gặp vấn đề. Vui lòng thử lại lần sau.";
+
+        if (message === "PHONE_IS_READY") {
+            errorMessage = "Thông tin đã được đăng kí. Vui lòng chờ tin mới nhất của chúng tôi.";
+        }
+        if (message === "EMAIL_IS_READY") {
+            errorMessage = "Email này đã được đăng kí. Vui lòng chờ tin mới nhất của chúng tôi.";
+        }
+        setDefaultModalData(() => ({
+            icon: "error",
+            title: "Xin lỗi bạn!",
+            content: errorMessage + " Cảm ơn bạn!",
+        }));
+
+        setIsModalOpened(true);
     }
+
     return (
         <>
             <Header />

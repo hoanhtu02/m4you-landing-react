@@ -10,7 +10,7 @@ export default function Recap({ onSubmitSuccess, onSubmitError }) {
         reset,
         formState: { errors, isSubmitSuccessful },
     } = useForm();
-
+    const [isPending, setIsPending] = useState(false);
     const [data, setData] = useState({});
 
     useEffect(() => {
@@ -25,8 +25,7 @@ export default function Recap({ onSubmitSuccess, onSubmitError }) {
             async function sendMail() {
                 try {
                     if (!isSubmitSuccessful) return;
-                    onSubmitSuccess();
-                    // console.log(data);
+                    setIsPending(() => true);
                     const response = await fetch("https://api-dev.vimoos.online/landing-page", {
                         method: "POST",
                         headers: {
@@ -34,8 +33,12 @@ export default function Recap({ onSubmitSuccess, onSubmitError }) {
                         },
                         body: JSON.stringify(data),
                     });
+                    setIsPending(() => false);
                     if (!response.ok) throw new Error();
-                    console.log(response);
+                    const result = await response.json();
+                    console.log(result);
+                    if (!result.success) return onSubmitError(result.data.message);
+                    onSubmitSuccess();
                     // throw new Error();
                 } catch (err) {
                     onSubmitError();
@@ -46,7 +49,7 @@ export default function Recap({ onSubmitSuccess, onSubmitError }) {
         [data, isSubmitSuccessful]
     );
     return (
-        <section className="max-w-standard mx-auto  flex md:flex-row flex-col  justify-between mt-[4rem] md:mx-[2.5rem]gap-20">
+        <section className="max-w-standard mx-auto xl:w-full flex md:flex-row flex-col justify-between mt-[4rem] lg:mx-auto md:mx-[2.5rem] lg:gap-28  gap-10 lg:mb-12">
             <div className="flex flex-col justify-center items-center sm:items-start gap-y-[1.3125rem] md:w-8/12 px-6">
                 <Title className={"text-center sm:text-left"}>
                     <p>Ứng dụng M4YOU</p> sẽ sớm ra mắt
@@ -55,7 +58,7 @@ export default function Recap({ onSubmitSuccess, onSubmitError }) {
                     Để lại email để nhận thông tin sớm nhất từ chúng tôi
                 </p>
                 <form
-                    className="flex justify-between gap-7 text-lg md:w-full sm:w-8/12 w-full"
+                    className="grid grid-cols-[60%_35%] justify-between gap-7 text-lg md:w-full  w-full"
                     onSubmit={handleSubmit(function (data) {
                         data.landingPageType = "APP";
                         setData(() => {
@@ -78,7 +81,19 @@ export default function Recap({ onSubmitSuccess, onSubmitError }) {
                         }`}
                         placeholder={"Email của bạn"}
                     />
-                    <Button isRedirect={false}>Submit</Button>
+                    <Button isRedirect={false} isPending={isPending}>
+                        {!isPending ? (
+                            "Submit"
+                        ) : (
+                            <div>
+                                <img
+                                    src="assets/icons/loading.gif"
+                                    alt="loading"
+                                    className="block h-[25px] md:h-[27px] mx-auto"
+                                />
+                            </div>
+                        )}
+                    </Button>
                 </form>
                 {errors["email"] ? (
                     <span className={`text-red-600 font-[400] text-[0.85rem] mt-[-10px] mr-auto`}>
@@ -90,7 +105,7 @@ export default function Recap({ onSubmitSuccess, onSubmitError }) {
             </div>
             <img
                 src="assets/images/iphone.png"
-                className="xl:w-[470px] lg:w-[400px] md:w-[250px] md:mt-0 mt-6 w-[300px] mx-auto"
+                className="xl:w-[470px] lg:w-[400px] md:w-[250px] md:mt-0 mt-6 w-[300px] shrink-0 mx-auto"
                 loading="lazy"
                 alt="Iphone"
             />

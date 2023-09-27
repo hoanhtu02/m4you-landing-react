@@ -26,7 +26,7 @@ export default function Problem() {
                 <img
                     loading="lazy"
                     className="w-[50.5rem] md:w-[24rem] xl:w-[45rem] lg:w-[37rem] md:absolute md:bottom-0 md:right-0"
-                    src=" assets/images/confusing-4x.png"
+                    src=" assets/images/confusing.png"
                     alt="Confusing"
                 />
             </div>
