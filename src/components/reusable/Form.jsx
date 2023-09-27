@@ -92,7 +92,9 @@ function Form({ onSubmitSuccess, onSubmitError }) {
                 // console.log(dataForm);
                 // throw new Error(); // Test error
                 setIsPending(() => true);
-                const response = await fetch("https://api-dev.vimoos.online/landing-page", {
+                const API_DEV = "https://api-dev.vimoos.online/landing-page";
+                const API_PRO = "https://api.vimoos.online/landing-page";
+                const response = await fetch(API_PRO, {
                     method: "POST",
                     headers: {
                         "Content-Type": "application/json",
@@ -102,7 +104,7 @@ function Form({ onSubmitSuccess, onSubmitError }) {
                 setIsPending(() => false);
                 if (!response.ok) throw new Error();
                 const result = await response.json();
-                console.log(result);
+                // console.log(result);
                 if (!result.success) return onSubmitError(result.data.message);
                 onSubmitSuccess();
             } catch (err) {
