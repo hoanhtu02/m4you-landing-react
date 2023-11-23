@@ -92,20 +92,20 @@ function Form({ onSubmitSuccess, onSubmitError }) {
                 // console.log(dataForm);
                 // throw new Error(); // Test error
                 setIsPending(() => true);
-                const API_DEV = "https://api-dev.vimoos.online/landing-page";
-                const API_PRO = "https://api.vimoos.online/landing-page";
-                const response = await fetch(API_PRO, {
-                    method: "POST",
-                    headers: {
-                        "Content-Type": "application/json",
-                    },
-                    body: JSON.stringify(dataForm),
-                });
+                // const API_DEV = "https://api-dev.vimoos.online/landing-page";
+                // const API_PRO = "https://api.vimoos.online/landing-page";
+                // const response = await fetch(API_PRO, {
+                //     method: "POST",
+                //     headers: {
+                //         "Content-Type": "application/json",
+                //     },
+                //     body: JSON.stringify(dataForm),
+                // });
                 setIsPending(() => false);
-                if (!response.ok) throw new Error();
-                const result = await response.json();
-                // console.log(result);
-                if (!result.success) return onSubmitError(result.data.message);
+                // if (!response.ok) throw new Error();
+                // const result = await response.json();
+                // // console.log(result);
+                // if (!result.success) return onSubmitError(result.data.message);
                 onSubmitSuccess();
             } catch (err) {
                 onSubmitError();
