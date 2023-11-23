@@ -26,20 +26,20 @@ export default function Recap({ onSubmitSuccess, onSubmitError }) {
                 try {
                     if (!isSubmitSuccessful) return;
                     setIsPending(() => true);
-                    const API_DEV = "https://api-dev.vimoos.online/landing-page";
-                    const API_PRO = "https://api.vimoos.online/landing-page";
-                    const response = await fetch(API_PRO, {
-                        method: "POST",
-                        headers: {
-                            "Content-Type": "application/json",
-                        },
-                        body: JSON.stringify(data),
-                    });
+                    // const API_DEV = "https://api-dev.vimoos.online/landing-page";
+                    // const API_PRO = "https://api.vimoos.online/landing-page";
+                    // const response = await fetch(API_PRO, {
+                    //     method: "POST",
+                    //     headers: {
+                    //         "Content-Type": "application/json",
+                    //     },
+                    //     body: JSON.stringify(data),
+                    // });
                     setIsPending(() => false);
-                    if (!response.ok) throw new Error();
-                    const result = await response.json();
-                    // console.log(result);
-                    if (!result.success) return onSubmitError(result.data.message);
+                    // if (!response.ok) throw new Error();
+                    // const result = await response.json();
+                    // // console.log(result);
+                    // if (!result.success) return onSubmitError(result.data.message);
                     onSubmitSuccess();
                     // throw new Error();
                 } catch (err) {
